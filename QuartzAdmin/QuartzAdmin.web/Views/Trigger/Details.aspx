@@ -81,7 +81,7 @@
     </fieldset>
     <p>
         <%=Html.ActionLink("Back to List", "Details", "Group", new { id = ViewData["groupName"] }, null)%>
-        <%=Html.ActionLink("Fire Times", "FireTimes", new { groupName = Model.Trigger.Group, itemName = Model.Trigger.Name })%>
+        <a href="javascript:void(0)" id="showFireTimes" name="showFireTimes">Show Fire Times</a>
     </p>
     
 <div id="panelFireTimes">
@@ -92,5 +92,14 @@
 	<div class="ft"></div>
 </div>    
 
+
+<script type="text/javascript">
+    YAHOO.namespace("bdr");
+    YAHOO.util.Event.addListener(window, "load", function() {
+    YAHOO.bdr.panel1 = new YAHOO.widget.Panel("panelFireTimes", { width: "320px", visible: false, constraintoviewport: true, fixedcenter: true });
+        YAHOO.bdr.panel1.render();
+        YAHOO.util.Event.addListener("showFireTimes", "click", YAHOO.bdr.panel1.show, YAHOO.bdr.panel1, true);
+    });
+</script>
 </asp:Content>
 

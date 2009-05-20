@@ -32,5 +32,11 @@ namespace QuartzAdmin.web.Models
             sched.TriggerJob(jobName, groupName, jdm);
         }
 
+        public void DeleteJob(string jobName, string groupName)
+        {
+            IScheduler sched = GetQuartzScheduler();
+            sched.DeleteJob(jobName, groupName);
+        }
+
     }
 }
