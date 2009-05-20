@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sample.scheduler.core", "sample.scheduler.core\sample.scheduler.core.csproj", "{C9D067E7-AD4E-4EC1-92E7-37824401A142}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sample.scheduler.console", "sample.scheduler.console\sample.scheduler.console.csproj", "{DC4EB02A-C69A-47FE-844E-D742AA5DBB5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "samples.scheduler.service", "samples.scheduler.service\samples.scheduler.service.csproj", "{8304113F-96D0-4609-B850-3B7747FDD666}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9D067E7-AD4E-4EC1-92E7-37824401A142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9D067E7-AD4E-4EC1-92E7-37824401A142}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9D067E7-AD4E-4EC1-92E7-37824401A142}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9D067E7-AD4E-4EC1-92E7-37824401A142}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC4EB02A-C69A-47FE-844E-D742AA5DBB5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC4EB02A-C69A-47FE-844E-D742AA5DBB5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC4EB02A-C69A-47FE-844E-D742AA5DBB5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC4EB02A-C69A-47FE-844E-D742AA5DBB5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8304113F-96D0-4609-B850-3B7747FDD666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8304113F-96D0-4609-B850-3B7747FDD666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8304113F-96D0-4609-B850-3B7747FDD666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8304113F-96D0-4609-B850-3B7747FDD666}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
