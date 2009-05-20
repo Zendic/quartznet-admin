@@ -1,0 +1,13 @@
+#summary Listing of external tools used
+
+= Introduction =
+
+Several external tools are used by the project
+
+
+= List =
+
+  * SQLite ADO library http://sqlite.phxsoftware.com/
+  * Log4net http://logging.apache.org/log4net/index.html
+  * SQLite http://www.sqlite.org
+  * SQLite admin tool http://sourceforge.net/project/showfiles.php?group_id=189610
