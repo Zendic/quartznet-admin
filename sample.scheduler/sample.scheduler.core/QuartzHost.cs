@@ -20,6 +20,7 @@ namespace sample.scheduler.core
             if (!jobNames.Contains(myJobName))
             {
                 Quartz.JobDetail job = new Quartz.JobDetail(myJobName, myGroupName, typeof(ConsoleJob1));
+                job.JobDataMap.Add("ExtraText", "Plinko");
                 Quartz.Trigger trigger = Quartz.TriggerUtils.MakeMinutelyTrigger(2);
                 trigger.Name = "myFirstTrigger";
                 trigger.Group = myGroupName;
