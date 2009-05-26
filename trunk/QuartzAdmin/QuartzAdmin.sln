@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartzAdmin.web.Tests", "Qu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartzAdmin.config", "QuartzAdmin.config\QuartzAdmin.config.csproj", "{2DA8324D-5DD7-40B0-B149-52AF1EE32EE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartzAdmin.data", "QuartzAdmin.data\QuartzAdmin.data.csproj", "{6EF5ACE1-CDFE-4BFA-A128-BC64367292D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{2DA8324D-5DD7-40B0-B149-52AF1EE32EE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DA8324D-5DD7-40B0-B149-52AF1EE32EE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DA8324D-5DD7-40B0-B149-52AF1EE32EE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EF5ACE1-CDFE-4BFA-A128-BC64367292D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EF5ACE1-CDFE-4BFA-A128-BC64367292D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EF5ACE1-CDFE-4BFA-A128-BC64367292D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EF5ACE1-CDFE-4BFA-A128-BC64367292D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
