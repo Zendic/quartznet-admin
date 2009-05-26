@@ -13,9 +13,11 @@ namespace QuartzAdmin.web.Controllers
         //
         // GET: /Group/
 
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
+            groupRepo.InstanceName = id;
             var groups = groupRepo.FindAllGroups().ToList();
+
             return View(groups);
         }
 

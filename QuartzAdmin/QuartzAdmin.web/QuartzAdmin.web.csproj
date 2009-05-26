@@ -31,6 +31,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.ActiveRecord, Version=1.9.101.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\includes\Castle.ActiveRecord.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Components.Validator, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\includes\Castle.Components.Validator.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\includes\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\includes\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
     <Reference Include="Common.Logging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\includes\Common.Logging.dll</HintPath>
@@ -39,9 +55,21 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\includes\Common.Logging.Log4Net.dll</HintPath>
     </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\includes\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\includes\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.1.0.1003, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\includes\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.0.1003, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\includes\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
     <Reference Include="Quartz, Version=1.0.0.3, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -87,6 +115,7 @@
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstanceController.cs" />
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\JobExecutionController.cs" />
     <Compile Include="Controllers\TriggerController.cs" />
@@ -100,6 +129,9 @@
     <Compile Include="Models\BaseQuartzRepository.cs" />
     <Compile Include="Models\CalendarRepository.cs" />
     <Compile Include="Models\GroupRepository.cs" />
+    <Compile Include="Models\InstanceModel.cs" />
+    <Compile Include="Models\InstancePropertyModel.cs" />
+    <Compile Include="Models\InstanceRepository.cs" />
     <Compile Include="Models\JobRepository.cs" />
     <Compile Include="Models\TriggerFireTimesModel.cs" />
     <Compile Include="Models\TriggerRepository.cs" />
@@ -116,6 +148,7 @@
     <Content Include="Views\Group\Details.aspx" />
     <Content Include="Views\Group\Index.aspx" />
     <Content Include="Views\Group\NotFound.aspx" />
+    <Content Include="Views\Instance\Index.aspx" />
     <Content Include="Views\JobExecution\CurrentStatus.aspx" />
     <Content Include="Views\JobExecution\Index.aspx" />
     <Content Include="Views\Job\Details.aspx" />

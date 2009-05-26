@@ -1,0 +1,64 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using NHibernate;
+using NHibernate.Cfg;
+using NHibernate.Criterion;
+using Castle.ActiveRecord;
+using Iesi.Collections.Generic;
+
+
+namespace QuartzAdmin.web.Models
+{
+    public class InstanceRepository
+    {
+        public List<InstanceModel> GetAllInstances()
+        {
+            if(!ActiveRecordStarter.IsInitialized)
+                ActiveRecordStarter.Initialize();
+            
+            List<InstanceModel> instances = new List<InstanceModel>();
+
+            InstanceModel[] tmp_instances = InstanceModel.FindAll();
+            foreach (InstanceModel instance in tmp_instances)
+            {
+                instances.Add(instance);
+            }
+
+            return instances;
+        }
+
+        public InstanceModel GetInstance(int instanceID)
+        {
+            if (!ActiveRecordStarter.IsInitialized)
+                ActiveRecordStarter.Initialize();
+
+            InstanceModel instance = new InstanceModel();
+
+            instance = InstanceModel.Find(instanceID);
+            
+            return instance;
+        }
+
+        public InstanceModel GetInstance(string instanceName)
+        {
+            if (!ActiveRecordStarter.IsInitialized)
+                ActiveRecordStarter.Initialize();
+
+            InstanceModel instance = new InstanceModel();
+
+            instance = InstanceModel.FindFirst(Expression.Eq("InstanceName", instanceName));
+
+            return instance;
+        }
+
+        public void SaveInstance(InstanceModel instance)
+        {
+            if (!ActiveRecordStarter.IsInitialized)
+                ActiveRecordStarter.Initialize();
+
+            instance.Save();
+        }
+    }
+}
