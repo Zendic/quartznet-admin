@@ -1,5 +1,5 @@
 #summary Brainstorming for the project features and approach
-#labels Phase-Requirements
+#labels Phase-Requirements,Featured
 
 = Approach =
 
