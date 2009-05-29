@@ -1,4 +1,5 @@
 #summary Brainstorming for the project features and approach
+#labels Phase-Requirements
 
 = Approach =
 
@@ -28,3 +29,8 @@
   * Data access will not be limited to a particular RDMS
     * Initial support will be for MSSQL and SQLLite
     * Current direction for data layer is [http://www.castleproject.org/activerecord/index.html Castle ActiveRecord] (based on NHibernate)
+  * XHTML compliant layout, CSS positioning 
+  * Multiple authentication options using MembershipProvider model
+    * Forms based
+    * Windows based
+    * None
