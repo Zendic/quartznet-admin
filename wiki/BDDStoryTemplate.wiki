@@ -2,12 +2,34 @@
 
 = Introduction =
 
-Add your content here.
+One of the goals of this project is to utilize the Behavior Driven Development (BDD) methodology for analysis and design. A key practice in BDD is to capture the definition of features in the form of stories. A story describes the scope of a feature, why it is beneficial, who it benefits, and its acceptance criteria.  A feature is considered complete when all of the criteria has been met.
+
+It is highly recommened that you read the following two articles if you are not familiar with this process:
+
+  *[http://dannorth.net/introducing-bdd Introducing BDD]
+  *[http://dannorth.net/whats-in-a-story What's in a story?]
 
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+For this project, we will use the standard story template:
+
+Title (one line describing the story)
+
+Narrative:
+As a [role]
+I want [feature]
+So that [benefit]
+
+Acceptance Criteria: (presented as Scenarios)
+
+Scenario 1: Title
+Given [context]
+  And [some more context]...
+When  [event]
+Then  [outcome]
+  And [another outcome]...
+
+Scenario 2: ...
+
+For example...
