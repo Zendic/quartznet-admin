@@ -8,7 +8,7 @@ It is highly recommened that you read the following two articles if you are not 
 
   *[http://dannorth.net/introducing-bdd Introducing BDD]
   *[http://dannorth.net/whats-in-a-story What's in a story?]
-
+[http://www.google.com Google home page]
 
 = Details =
 
