@@ -14,25 +14,21 @@ It is highly recommened that you read the following two articles if you are not 
 
 For this project, we will use the standard story template:
 
-{{{
+
 Title (one line describing the story)
 
-Narrative
-As a [role]
-I want [feature]
-So that [benefit]
-}}}
-<p>
+Narrative<br>
+As a (role)<br>
+I want (feature)<br>
+So that (benefit)<br>
+
 Acceptance Criteria: (presented as Scenarios)
-</p>
-<p>
-Scenario 1: Title<br/>
-Given [context]<br/>
-  And [some more context]...<br/>
-When  [event]<br/>
-Then  [outcome]<br/>
-  And [another outcome]...<br/>
-</p>
-<p>
+
+Scenario 1: Title<br>
+Given (context)<br>
+And (some more context)...<br>
+When  (event)<br>
+Then  (outcome)<br>
+And (another outcome)...<br>
+
 Scenario 2: ...
-</p>
