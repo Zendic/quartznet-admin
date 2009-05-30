@@ -1,4 +1,4 @@
-BDD Story Template
+#summary BDD Story Template
 
 = Introduction =
 
