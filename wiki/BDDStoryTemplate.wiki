@@ -1,8 +1,8 @@
-#summary BDD Story Template
+#summary BDD Story Template (Under Construction)
 
 = Introduction =
 
-One of the goals of this project is to utilize the Behavior Driven Development (BDD) methodology for analysis and design. A key practice in BDD is to capture the definition of features in the form of stories. A story describes the scope of a feature, why it is beneficial, who it benefits, and its acceptance criteria.  A feature is considered complete when all of the criteria has been met.
+One of the goals of this project is to utilize the Behavior Driven Development (BDD) methodology for analysis and design. A key practice in BDD is to capture the definition of features in the form of stories. A story describes the scope of a feature, why it is beneficial, who it benefits, and its acceptance criteria.  A feature is considered complete when all of the acceptance criteria has been met.
 
 It is highly recommened that you read the following two articles if you are not familiar with this process:
 
@@ -12,26 +12,26 @@ It is highly recommened that you read the following two articles if you are not 
 
 = Analysis =
 
-For this project, we will use the standard story template:
+For this project, we will use the standard BDD story template:
 
 1) Title
 
- Story: (one line describing the story)
+ Story: _one line describing the story_
  
 2) Narative
  
- As a (role)<br>
- I want (feature)<br>
- So that (benefit)<br>
+ As a _role_<br>
+ I want _feature_<br>
+ So that _benefit_<br>
 
 3) Acceptance criteria
 
- Scenario 1: Title<br>
- Given (context)<br>
- And (some more context)...<br>
- When (event)<br>
- Then (outcome)<br>
- And (another outcome)...<br>
+ Scenario 1: _brief description that differentiates the scenario from others_<br>
+ Given _context_<br>
+ And _some more context_...<br>
+ When _event_<br>
+ Then _outcome_<br>
+ And _another outcome_...<br>
 
  Scenario 2: ...
 
@@ -58,3 +58,9 @@ For example:
  and the user is notified that the definition was not stored<br>
 
 = Design =
+
+As stated above, a feature is considered complete when all of the its acceptance criteria is met.  To reinforce this, each scenario must be represented by at least one unit test written in a TDD fashion.  More to follow...
+
+TBD: As a standard, should the scenario be quoted or referenced in some way in the code?
+TBD: Create a template document for this and put it in downloads?  
+TBD: How the completed document(s) will be named, organized, and stored
