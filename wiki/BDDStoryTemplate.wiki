@@ -1,4 +1,4 @@
-#summary BDD Story Template (Under Construction)
+#summary BDD Story Template
 
 = Introduction =
 
@@ -10,7 +10,7 @@ It is highly recommened that you read the following two articles if you are not 
   * [http://dannorth.net/whats-in-a-story What's in a story?]
 
 
-= Analysis =
+= Story Template =
 
 For this project, we will use the standard BDD story template:
 
@@ -56,11 +56,3 @@ For example:
  and the definition is not stored<br>
  and the user is notified that the specified remoting URL could not be validated<br>
  and the user is notified that the definition was not stored<br>
-
-= Design =
-
-As stated above, a feature is considered complete when all of the its acceptance criteria is met.  To reinforce this, each scenario must be represented by at least one unit test written in a TDD fashion.  More to follow...
-
-TBD: As a standard, should the scenario be quoted or referenced in some way in the code?
-TBD: Create a template document for this and put it in downloads?  
-TBD: How the completed document(s) will be named, organized, and stored
