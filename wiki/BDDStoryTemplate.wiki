@@ -32,27 +32,26 @@ And (another outcome)...<br>
 
 Scenario 2: ...
 
-
 For example:
 
-Story: Connecting to Quartz Instance (via Remoting)
+Story: Defining a connection
 
-As a security analyst
-I want to connect to a Quartz instance via remoting
-So that the Quartz database is not exposed directly
+As a system administrator<br>
+I want to be able to define, validate, and store a connection to a quartz instance<br>
+So that I know the connection data is valid and I can assign security to the definition<br>
 
-Scenario 1: Valid address
-Given the remoting endpoint is available
-When the user specifies a valid address
-Then the system creates a remote object to validate its existence
-and the address is stored for later use
-and the user is notified that the new endpoint has been saved
+Scenario 1: Valid remoting URL<br>
+Given the remoting endpoint is available<br>
+When the definition contains a valid remoting URL<br>
+Then the system successfully creates a remote object to validate the URL<br>
+and the definition is stored<br>
+and the user is notified that the definition was stored<br>
 
-Scenario 2: Invalid address
-When the user specifies an invalid address
-Then the system fails to valid the existence of the remote object
-and and address is not stored for later use
-and the user is notified that the endpoint was not saved 
-
+Scenario 2: Invalid remoting URL<br>
+When the definition contains an invalid remoting URL<br>
+Then the system fails to create a remote object while trying to valid the URL<br>
+and the definition is not stored<br>
+and the user is notified that the specified remoting URL could not be validated<br>
+and the user is notified that the definition was not stored<br>
 
 = Design =
