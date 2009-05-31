@@ -17,12 +17,12 @@ For this project, we will use the standard BDD story template:
 1) Title
 
  Story: _one line describing the story_
- 
+
 2) Narative
  
  As a _role_<br>
  I want _feature_<br>
- So that _benefit_<br>
+ So that _benefit_
  
 3) Acceptance criteria
 
@@ -31,7 +31,7 @@ For this project, we will use the standard BDD story template:
  And _some more context_...<br>
  When _event_<br>
  Then _outcome_<br>
- And _another outcome_...<br>
+ And _another outcome_...
 
  Scenario 2: ...
 
