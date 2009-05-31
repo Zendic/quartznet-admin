@@ -23,7 +23,7 @@ For this project, we will use the standard BDD story template:
  As a _role_<br>
  I want _feature_<br>
  So that _benefit_<br>
-
+ 
 3) Acceptance criteria
 
  Scenario 1: _brief description that differentiates the scenario from others_<br>
