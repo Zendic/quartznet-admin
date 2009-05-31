@@ -40,7 +40,7 @@ For example:
  Story: Defining a connection
 
  As a system administrator<br>
- I want to save validated connection definitions to quartz instance<br>
+ I want to save a validated connection definition to a quartz instance<br>
  So that I know the connection data is valid and I can assign security to the definition<br>
 
  Scenario 1: Valid remoting URL<br>
