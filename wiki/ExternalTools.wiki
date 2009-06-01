@@ -12,3 +12,4 @@ Several external tools are used by the project
   * SQLite http://www.sqlite.org
   * SQLite admin tool http://sourceforge.net/project/showfiles.php?group_id=189610
   * Moq http://code.google.com/p/moq/
+  * Possibly use ELMAH http://code.google.com/p/elmah/
