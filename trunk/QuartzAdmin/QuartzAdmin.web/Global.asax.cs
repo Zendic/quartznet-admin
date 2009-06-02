@@ -17,7 +17,7 @@ namespace QuartzAdmin.web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
                 "Default",                                              // Route name
-                "{controller}/{instanceName}/{action}/{groupName}/{itemName}",                           // URL with parameters
+                "{controller}/{action}/{instanceName}/{groupName}/{itemName}",                           // URL with parameters
                 new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
             );
             /*

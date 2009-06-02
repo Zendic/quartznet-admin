@@ -68,7 +68,7 @@
     <div class="hd">Job Data Map</div> 
         <div class="bd">     
         
-            <form id="runnow_form" action="<%=Url.Action("RunNow", "JobExecution", new {groupName=Model.Group, itemName=Model.Name}) %>" method="post">
+            <form id="runnow_form" action="<%=Url.Action("RunNow", "JobExecution", new {instanceName=ViewData["instanceName"], groupName=Model.Group, itemName=Model.Name}) %>" method="post">
                     <%
                         foreach (System.Collections.DictionaryEntry d in Model.JobDataMap)
                       {%>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<string>>" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<QuartzAdmin.web.Models.InstanceModel>>" %>
 
 
 <asp:Content ID="indexTitle" ContentPlaceHolderID="TitleContent" runat="server">
@@ -11,9 +11,9 @@
     
         <ul>
         <%
-        foreach (var group in Model)
+        foreach (var instance in Model)
           {%>
-            <li><%=Html.ActionLink(group, "Details", "Group", new{id=group}, null) %></li>
+            <li><%=Html.ActionLink(instance.InstanceName, "Index", "Job", new { id = instance.InstanceName }, null)%> <%=Html.ActionLink("Edit", "Details", "Instance", new{id=instance.InstanceName}, null) %></li>
         
         <%} %>        
         </ul>
