@@ -9,15 +9,19 @@ namespace QuartzAdmin.web.Controllers
 {
     public class JobController : Controller
     {
-        private Models.JobRepository jobRepo = new QuartzAdmin.web.Models.JobRepository();
-        private Models.GroupRepository groupRepo = new QuartzAdmin.web.Models.GroupRepository();
+        //private Models.JobRepository jobRepo = new QuartzAdmin.web.Models.JobRepository();
+        //private Models.GroupRepository groupRepo = new QuartzAdmin.web.Models.GroupRepository();
+        Models.InstanceRepository instanceRepo = new QuartzAdmin.web.Models.InstanceRepository();
+
         //
         // GET: /Job/
 
         public ActionResult Index(string id)
         {
-            groupRepo.InstanceName = id;
-            ViewData["instanceName"] = groupRepo.InstanceName;
+            Models.InstanceModel instance = instanceRepo.GetInstance(id);
+            Models.GroupRepository groupRepo = new QuartzAdmin.web.Models.GroupRepository(instance);
+
+            ViewData["instanceName"] = instance.InstanceName;
             List<Quartz.JobDetail> jobs = groupRepo.GetAllJobs();
             if (jobs == null || jobs.Count == 0)
             {
@@ -33,7 +37,9 @@ namespace QuartzAdmin.web.Controllers
 
         public ActionResult Details(string instanceName, string groupName, string itemName)
         {
-            jobRepo.InstanceName = instanceName;
+            Models.InstanceModel instance = instanceRepo.GetInstance(instanceName);
+            Models.JobRepository jobRepo = new QuartzAdmin.web.Models.JobRepository(instance);
+
             Quartz.JobDetail job = jobRepo.GetJob(itemName, groupName);
             
             ViewData["groupName"] = groupName;

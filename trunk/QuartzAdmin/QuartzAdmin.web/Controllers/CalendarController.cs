@@ -9,7 +9,7 @@ namespace QuartzAdmin.web.Controllers
 {
     public class CalendarController : Controller
     {
-        Models.CalendarRepository calRepo = new QuartzAdmin.web.Models.CalendarRepository();
+        Models.InstanceRepository instanceRepo = new QuartzAdmin.web.Models.InstanceRepository();
 
         //
         // GET: /Calendar/
@@ -19,10 +19,13 @@ namespace QuartzAdmin.web.Controllers
             return View();
         }
 
-        public ActionResult Details(string id)
+        public ActionResult Details(string instanceName, string calendarName)
         {
-            Quartz.ICalendar cal = calRepo.GetCalendar(id);
-            ViewData["calendarName"] = id;
+            Models.InstanceModel instance = instanceRepo.GetInstance(instanceName);
+
+            Models.CalendarRepository calRepo = new QuartzAdmin.web.Models.CalendarRepository(instance);
+            Quartz.ICalendar cal = calRepo.GetCalendar(calendarName);
+            ViewData["calendarName"] = calendarName;
 
             if (cal == null)
             {

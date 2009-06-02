@@ -30,6 +30,7 @@ namespace QuartzAdmin.web.Controllers
             }
             else
             {
+                instance.IsValid();
                 return View(instance);
             }
         }

@@ -10,9 +10,14 @@ namespace QuartzAdmin.web.Models
 {
     public class CalendarRepository : BaseQuartzRepository
     {
+        private InstanceModel quartzInstance;
+        public CalendarRepository(Models.InstanceModel instance)
+        {
+            quartzInstance = instance;
+        }
         public ICalendar GetCalendar(string calendarName)
         {
-            IScheduler sched = GetQuartzScheduler();
+            IScheduler sched = quartzInstance.GetQuartzScheduler();
             return sched.GetCalendar(calendarName);
             
         }
