@@ -9,9 +9,21 @@ namespace QuartzAdmin.web.Models
 {
     public class TriggerRepository : BaseQuartzRepository
     {
+        private InstanceModel quartzInstance;
+        public TriggerRepository(string instanceName)
+        {
+            InstanceRepository repo = new InstanceRepository();
+            quartzInstance = repo.GetInstance(instanceName);
+        }
+
+        public TriggerRepository(InstanceModel instance)
+        {
+            quartzInstance = instance;
+        }
+
         public Trigger GetTrigger(string triggerName, string groupName)
         {
-            IScheduler sched = GetQuartzScheduler();
+            IScheduler sched =quartzInstance.GetQuartzScheduler();
 
 
             return sched.GetTrigger(triggerName, groupName);
@@ -20,7 +32,7 @@ namespace QuartzAdmin.web.Models
 
         public IList<TriggerStatusModel> GetAllTriggerStatus(string groupName)
         {
-            IScheduler sched = GetQuartzScheduler();
+            IScheduler sched = quartzInstance.GetQuartzScheduler();
             string[] triggerNames= sched.GetTriggerNames(groupName);
             List<TriggerStatusModel> triggerStatuses = new List<TriggerStatusModel>();
             foreach (string triggerName in triggerNames)
@@ -50,8 +62,7 @@ namespace QuartzAdmin.web.Models
 
         public IList<TriggerStatusModel> GetAllTriggerStatus()
         {
-            GroupRepository groupRepo = new GroupRepository();
-            groupRepo.InstanceName = this.InstanceName;
+            GroupRepository groupRepo = new GroupRepository(quartzInstance);
             var groups = groupRepo.FindAllGroups();
             List<TriggerStatusModel> triggerStatuses = new List<TriggerStatusModel>();
 

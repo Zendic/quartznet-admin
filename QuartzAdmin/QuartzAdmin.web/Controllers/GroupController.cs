@@ -9,13 +9,17 @@ namespace QuartzAdmin.web.Controllers
 {
     public class GroupController : Controller
     {
-        Models.GroupRepository groupRepo = new QuartzAdmin.web.Models.GroupRepository();
+        Models.InstanceRepository instanceRepo = new QuartzAdmin.web.Models.InstanceRepository();
+
         //
         // GET: /Group/
 
         public ActionResult Index(string id)
         {
-            groupRepo.InstanceName = id;
+            Models.InstanceModel instance = instanceRepo.GetInstance(id);
+            Models.GroupRepository groupRepo = new QuartzAdmin.web.Models.GroupRepository(instance);
+
+
             var groups = groupRepo.FindAllGroups().ToList();
 
             return View(groups);
@@ -23,6 +27,8 @@ namespace QuartzAdmin.web.Controllers
 
         public ActionResult Details(string id)
         {
+            Models.InstanceModel instance = instanceRepo.GetInstance(id);
+            Models.GroupRepository groupRepo = new QuartzAdmin.web.Models.GroupRepository(instance);
             Models.GroupViewModel gvm = new QuartzAdmin.web.Models.GroupViewModel();
             gvm.GroupName = id;
             gvm.Jobs = groupRepo.GetAllJobs(id);

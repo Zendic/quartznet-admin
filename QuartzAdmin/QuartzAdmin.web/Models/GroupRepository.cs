@@ -10,9 +10,21 @@ namespace QuartzAdmin.web.Models
 {
     public class GroupRepository : BaseQuartzRepository
     {
+        private InstanceModel quartzInstance;
+        public GroupRepository(string instanceName)
+        {
+            InstanceRepository repo = new InstanceRepository();
+            quartzInstance = repo.GetInstance(instanceName);
+        }
+
+        public GroupRepository(InstanceModel instance)
+        {
+            quartzInstance = instance;
+        }
+
         public IQueryable<string> FindAllGroups()
         {
-            IScheduler sched = GetQuartzScheduler();
+            IScheduler sched = quartzInstance.GetQuartzScheduler();
 
             List<string> groups = new List<string>();
 
@@ -38,7 +50,7 @@ namespace QuartzAdmin.web.Models
         public List<JobDetail> GetAllJobs(string groupName)
         {
             List<JobDetail> jobs = new List<JobDetail>();
-            IScheduler sched = GetQuartzScheduler();
+            IScheduler sched = quartzInstance.GetQuartzScheduler();
             string[] jobNames = sched.GetJobNames(groupName);
             
             foreach (string jobName in jobNames)
@@ -64,7 +76,7 @@ namespace QuartzAdmin.web.Models
         public List<Trigger> GetAllTriggers(string groupName)
         {
             List<Trigger> triggers = new List<Trigger>();
-            IScheduler sched = GetQuartzScheduler();
+            IScheduler sched = quartzInstance.GetQuartzScheduler();
             string[] triggerNames = sched.GetTriggerNames(groupName);
 
             foreach (string triggerName in triggerNames)
