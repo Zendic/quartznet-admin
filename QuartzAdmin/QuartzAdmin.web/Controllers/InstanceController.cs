@@ -21,9 +21,17 @@ namespace QuartzAdmin.web.Controllers
         //
         // GET: /Instance/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
-            return View();
+            Models.InstanceModel instance = repo.GetInstance(id);
+            if (instance == null)
+            {
+                return View("NotFound");
+            }
+            else
+            {
+                return View(instance);
+            }
         }
 
         //

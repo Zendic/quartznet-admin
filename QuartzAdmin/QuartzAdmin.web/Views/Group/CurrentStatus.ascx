@@ -7,11 +7,14 @@
     YAHOO.util.Event.addListener(window, "load", function() {
         YAHOO.bdr.loadStatuses = new function() {
             this.formatUrl = function(elCell, oRecord, oColumn, sData) {
-                elCell.innerHTML = "<a href='<%=ResolveUrl("~/Job/Details/" + ViewData["groupName"] + "/")%>" + sData + "'>" + sData + "</a>";
+                var recordData = oRecord.getData();
+                
+                elCell.innerHTML = "<a href='<%=ResolveUrl("~/Job/Details/" + ViewData["instanceName"] + "/")%>" + recordData["GroupName"] + "/" + sData + "'>" + sData + "</a>";
             };
 
             var myColumnDefs = [
             { key: "JobName", label: "Job", sortable: true, formatter: this.formatUrl },
+            { key: "GroupName" },
             { key: "TriggerName" },
             { key: "StateDesc" },
             { key: "NextFireTime" },
@@ -30,7 +33,7 @@
             };
 
             var myDataTable = new YAHOO.widget.DataTable("triggerStatuses", myColumnDefs,
-                myDataSource, { initialRequest: "<%=ViewData["groupName"]%>" });
+                myDataSource, { initialRequest: "<%=ViewData["instanceName"]%>" });
 
             var myCallback = function() {
                 this.set("sortedBy", null);

@@ -11,12 +11,14 @@ namespace QuartzAdmin.web.Controllers
     public class HomeController : Controller
     {
 
-        Models.GroupRepository groupRepo = new QuartzAdmin.web.Models.GroupRepository();
+        //Models.GroupRepository groupRepo = new QuartzAdmin.web.Models.GroupRepository();
+        Models.InstanceRepository repo = new QuartzAdmin.web.Models.InstanceRepository();
 
         public ActionResult Index()
         {
-            var groups = groupRepo.FindAllGroups().ToList();
-            return View(groups);
+            var instances = repo.GetAllInstances();
+            //var groups = groupRepo.FindAllGroups().ToList();
+            return View(instances);
         }
 
         public ActionResult About()

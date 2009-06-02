@@ -37,11 +37,12 @@ namespace QuartzAdmin.web.Controllers
          * */
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult RunNow(string groupName, string itemName)
+        public ActionResult RunNow(string instanceName, string groupName, string itemName)
         {
             //var jdm_keys = this.ValueProvider.Keys.Where(k=>k.StartsWith("jdm_"));
-
+            jobRepo.InstanceName = instanceName;
             Quartz.JobDetail job = jobRepo.GetJob(itemName, groupName);
+            
 
 
             foreach (string jdm_key in this.Request.Form.Keys)
@@ -67,7 +68,8 @@ namespace QuartzAdmin.web.Controllers
 
         public JsonResult GetCurrentTriggerStatusList(string id)
         {
-            IList<Models.TriggerStatusModel> triggerStatuses = trigRepo.GetAllTriggerStatus(id);
+            trigRepo.InstanceName = id;
+            IList<Models.TriggerStatusModel> triggerStatuses = trigRepo.GetAllTriggerStatus();
             return this.Json(triggerStatuses);
         }
 

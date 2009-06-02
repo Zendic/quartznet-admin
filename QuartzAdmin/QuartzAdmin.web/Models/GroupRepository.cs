@@ -48,6 +48,19 @@ namespace QuartzAdmin.web.Models
 
             return jobs;
         }
+
+        public List<JobDetail> GetAllJobs()
+        {
+            List<JobDetail> jobs = new List<JobDetail>();
+            var groups = FindAllGroups();
+            foreach (string group in groups)
+            {
+                List<JobDetail> groupJobs = GetAllJobs(group);
+                jobs.AddRange(groupJobs);
+            }
+            return jobs;
+        }
+
         public List<Trigger> GetAllTriggers(string groupName)
         {
             List<Trigger> triggers = new List<Trigger>();

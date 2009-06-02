@@ -48,5 +48,20 @@ namespace QuartzAdmin.web.Models
 
         }
 
+        public IList<TriggerStatusModel> GetAllTriggerStatus()
+        {
+            GroupRepository groupRepo = new GroupRepository();
+            groupRepo.InstanceName = this.InstanceName;
+            var groups = groupRepo.FindAllGroups();
+            List<TriggerStatusModel> triggerStatuses = new List<TriggerStatusModel>();
+
+            foreach (string group in groups)
+            {
+                triggerStatuses.AddRange(GetAllTriggerStatus(group));
+            }
+
+            return triggerStatuses;
+        }
+
     }
 }
