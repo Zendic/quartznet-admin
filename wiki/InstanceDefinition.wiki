@@ -3,25 +3,22 @@
 
 *Story:* Defining a connection 
 
-As Operations
-I want to save a connection definition to a quartz instance which contains a human readable name and all information required to make a connection
-So that I can identify and connect to a running quartz instance
+  As Operations
+  I want to save a connection definition to a quartz instance which contains a human readable name and all information required to make a connection
+  So that I can identify and connect to a running quartz instance
 
   # Scenario: Valid name and connection information
     When the a valid name and connection information are entered
     Then the connection is saved
-
   # Scenario: Name is already in use
     Given the specified name is already in use
     When the name is specified for a new connection
     Then the connection is not saved
     and the user is notified that the name is already in use
-
   # Scenario: Name not specified
     When the name is not specified
     Then the connection is not saved
     and the user is notified that the name is required
-
   # Scenario: Connection properties not specified
     When no connection properties are specified
     Then the connection is not saved
