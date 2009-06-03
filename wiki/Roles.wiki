@@ -1,0 +1,9 @@
+#summary Roles that will use this application
+#labels Phase-Design,BDD
+
+= Roles =
+  * Developer
+  * Operations
+  * Security Analyst
+  * UI Analyst
+  * Integration Analyst
