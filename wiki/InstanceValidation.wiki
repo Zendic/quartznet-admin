@@ -1,0 +1,22 @@
+#summary Story for instance connection validation
+#labels Phase-Requirements,BDD,Story
+
+*Story:* Validating a connection 
+
+As Operations
+I want to save a validated connection definition to a quartz instance
+So that I know the connection data is valid and I can assign security to the definition
+
+Scenario 1: Valid remoting URL
+Given the remoting endpoint is available
+When the definition contains a valid remoting URL
+Then the system successfully creates a remote object to validate the URL
+and the definition is stored
+and the user is notified that the definition was stored
+
+Scenario 2: Invalid remoting URL
+When the definition contains an invalid remoting URL
+Then the system fails to create a remote object while trying to valid the URL
+and the definition is not stored
+and the user is notified that the specified remoting URL could not be validated
+and the user is notified that the definition was not stored
