@@ -1,4 +1,5 @@
 #summary BDD Story Template
+#labels Phase-Design,BDD
 
 = Introduction =
 
