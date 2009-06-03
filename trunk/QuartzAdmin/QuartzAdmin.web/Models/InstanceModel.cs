@@ -18,6 +18,7 @@ namespace QuartzAdmin.web.Models
         {
             InstanceProperties = new HashedSet<InstancePropertyModel>();
         }
+
         [PrimaryKey(Generator=PrimaryKeyType.Identity)]
         public virtual int InstanceID { get; set; }
         [Property, ValidateNonEmpty]

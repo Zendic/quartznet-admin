@@ -11,9 +11,9 @@ using Iesi.Collections.Generic;
 
 namespace QuartzAdmin.web.Models
 {
-    public class InstanceRepository
+    public class InstanceRepository: IInstanceRepository
     {
-        public List<InstanceModel> GetAllInstances()
+        public List<InstanceModel> GetAll()
         {
             if(!ActiveRecordStarter.IsInitialized)
                 ActiveRecordStarter.Initialize();
@@ -29,7 +29,7 @@ namespace QuartzAdmin.web.Models
             return instances;
         }
 
-        public InstanceModel GetInstance(int instanceID)
+        public InstanceModel GetInstanceByID(int instanceID)
         {
             if (!ActiveRecordStarter.IsInitialized)
                 ActiveRecordStarter.Initialize();
@@ -38,6 +38,18 @@ namespace QuartzAdmin.web.Models
 
             instance = InstanceModel.Find(instanceID);
             
+            return instance;
+        }
+
+        public InstanceModel GetByName(string instanceName)
+        {
+            if (!ActiveRecordStarter.IsInitialized)
+                ActiveRecordStarter.Initialize();
+
+            InstanceModel instance = new InstanceModel();
+
+            instance = InstanceModel.FindFirst(Expression.Eq("InstanceName", instanceName));
+
             return instance;
         }
 
@@ -53,10 +65,13 @@ namespace QuartzAdmin.web.Models
             return instance;
         }
 
-        public void SaveInstance(InstanceModel instance)
+
+        public void Save(InstanceModel instance)
         {
             if (!ActiveRecordStarter.IsInitialized)
                 ActiveRecordStarter.Initialize();
+
+            
 
             instance.Save();
         }
