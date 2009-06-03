@@ -16,7 +16,7 @@ namespace QuartzAdmin.web.Controllers
 
         public ActionResult Index()
         {
-            var instances = repo.GetAllInstances();
+            var instances = repo.GetAll();
             //var groups = groupRepo.FindAllGroups().ToList();
             return View(instances);
         }

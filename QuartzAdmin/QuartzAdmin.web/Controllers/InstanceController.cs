@@ -9,13 +9,23 @@ namespace QuartzAdmin.web.Controllers
 {
     public class InstanceController : Controller
     {
-        Models.InstanceRepository repo = new QuartzAdmin.web.Models.InstanceRepository();
+        public Models.IInstanceRepository Repository { get; set; }
+
+        public InstanceController()
+        {
+            Repository = new QuartzAdmin.web.Models.InstanceRepository();
+        }
+        public InstanceController(Models.IInstanceRepository repository)
+        {
+            Repository = repository;
+        }
+
         //
         // GET: /Instance/
 
         public ActionResult Index()
         {
-            return View(repo.GetAllInstances());
+            return View(Repository.GetAll());
         }
 
         //
@@ -23,7 +33,7 @@ namespace QuartzAdmin.web.Controllers
 
         public ActionResult Details(string id)
         {
-            Models.InstanceModel instance = repo.GetInstance(id);
+            Models.InstanceModel instance = Repository.GetByName(id);
             if (instance == null)
             {
                 return View("NotFound");
@@ -51,7 +61,18 @@ namespace QuartzAdmin.web.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                Models.InstanceModel instance = new QuartzAdmin.web.Models.InstanceModel();
+                instance.InstanceName = collection["InstanceName"];
+
+                foreach (string key in collection.Keys)
+                {
+                    if (key.Contains("InstancePropertyKey"))
+                    {
+                        string propIdx = key.Replace("InstancePropertyKey", ""); 
+                        instance.InstanceProperties.Add(new QuartzAdmin.web.Models.InstancePropertyModel() { PropertyName = collection[key], PropertyValue = collection["InstancePropertyValue" + propIdx.ToString()] });
+                    }
+                }
+                this.Repository.Save(instance);
 
                 return RedirectToAction("Index");
             }

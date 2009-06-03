@@ -133,6 +133,7 @@
     <Compile Include="Models\BaseQuartzRepository.cs" />
     <Compile Include="Models\CalendarRepository.cs" />
     <Compile Include="Models\GroupRepository.cs" />
+    <Compile Include="Models\IInstanceRepository.cs" />
     <Compile Include="Models\InstanceModel.cs" />
     <Compile Include="Models\InstancePropertyModel.cs" />
     <Compile Include="Models\InstanceRepository.cs" />
