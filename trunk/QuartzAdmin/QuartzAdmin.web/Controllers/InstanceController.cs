@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
+using Quartz;
+using Quartz.Impl;
 
 namespace QuartzAdmin.web.Controllers
 {
@@ -40,7 +42,6 @@ namespace QuartzAdmin.web.Controllers
             }
             else
             {
-                instance.IsValid();
                 return View(instance);
             }
         }
@@ -106,6 +107,33 @@ namespace QuartzAdmin.web.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult Connect(string id)
+        {
+            Models.InstanceModel instance = Repository.GetByName(id);
+            if (instance == null)
+            {
+                return View("NotFound");
+            }
+            else
+            {
+                Models.InstanceViewModel ivm = new QuartzAdmin.web.Models.InstanceViewModel() { Instance = instance };
+                IScheduler sched = instance.GetQuartzScheduler();
+                if (sched == null)
+                {
+                    return View("NotFound");
+                }
+                else
+                {
+                    ivm.Jobs = instance.GetAllJobs();
+                    ivm.Triggers = instance.GetAllTriggers();
+                    return View(ivm);
+
+                }
+
+            }
+
         }
     }
 }

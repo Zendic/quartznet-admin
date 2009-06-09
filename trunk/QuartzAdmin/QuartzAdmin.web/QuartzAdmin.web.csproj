@@ -137,6 +137,7 @@
     <Compile Include="Models\InstanceModel.cs" />
     <Compile Include="Models\InstancePropertyModel.cs" />
     <Compile Include="Models\InstanceRepository.cs" />
+    <Compile Include="Models\InstanceViewModel.cs" />
     <Compile Include="Models\JobRepository.cs" />
     <Compile Include="Models\TriggerFireTimesModel.cs" />
     <Compile Include="Models\TriggerRepository.cs" />
@@ -153,6 +154,7 @@
     <Content Include="Views\Group\Details.aspx" />
     <Content Include="Views\Group\Index.aspx" />
     <Content Include="Views\Group\NotFound.aspx" />
+    <Content Include="Views\Instance\Connect.aspx" />
     <Content Include="Views\Instance\Details.aspx" />
     <Content Include="Views\Instance\Index.aspx" />
     <Content Include="Views\JobExecution\CurrentStatus.aspx" />

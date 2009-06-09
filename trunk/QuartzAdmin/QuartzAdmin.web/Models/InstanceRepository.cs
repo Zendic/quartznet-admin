@@ -75,5 +75,6 @@ namespace QuartzAdmin.web.Models
 
             instance.Save();
         }
+
     }
 }
