@@ -3,21 +3,19 @@
 
 *Story:* Connecting to an instance 
 
-  As Operations
+  * As Operations
+  * I want to connect to a running instance of quartz
+  * So that I can view jobs, schedules, and triggers
 
-  I want to 
-
-  So that I can
-
-  # Scenario: 
-
-    When 
-
-    Then 
-  # Scenario: 
-
-    Given 
-
-    When 
-
-    Then 
+  # Scenario: Verify quartz is running
+    * Given a quartz instance is running
+    * When I connect
+    * Then a valid instance should be returned
+  # Scenario: List all jobs in an instance
+    * Given a quartz instance is running
+    * When I connect and request a list of jobs
+    * Then a list of jobs should be returned
+  # Scenario: List all triggers in an instance
+    * Given a quartz instance is running
+    * When I connect and request a list of triggers
+    * Then a list of triggers should be returned
