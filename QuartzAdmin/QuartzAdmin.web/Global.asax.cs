@@ -29,9 +29,14 @@ namespace QuartzAdmin.web
                 new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
             );
              * */
-
             routes.MapRoute(
                 "Default2",                                              // Route name
+                "{controller}/{action}/{instanceName}/{itemName}",                           // URL with parameters
+                new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
+            );
+
+            routes.MapRoute(
+                "Default3",                                              // Route name
                 "{controller}/{action}/{id}",                           // URL with parameters
                 new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
             );

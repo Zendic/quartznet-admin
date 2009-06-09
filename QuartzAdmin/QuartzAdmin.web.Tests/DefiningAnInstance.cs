@@ -103,7 +103,7 @@ Defining a connection
 
             //Assert
             Assert.IsNotNull(newInstance);
-            Assert.Equals(formData["InstanceName"], newInstance.InstanceName);
+            Assert.AreEqual(formData["InstanceName"], newInstance.InstanceName);
         }
             
         private QuartzAdmin.web.Controllers.InstanceController GetInstanceController()

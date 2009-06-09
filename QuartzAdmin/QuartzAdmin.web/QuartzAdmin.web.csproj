@@ -117,7 +117,6 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
-    <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstanceController.cs" />
     <Compile Include="Controllers\JobController.cs" />
@@ -130,9 +129,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BaseQuartzRepository.cs" />
     <Compile Include="Models\CalendarRepository.cs" />
-    <Compile Include="Models\GroupRepository.cs" />
     <Compile Include="Models\IInstanceRepository.cs" />
     <Compile Include="Models\InstanceModel.cs" />
     <Compile Include="Models\InstancePropertyModel.cs" />
@@ -143,17 +140,13 @@
     <Compile Include="Models\TriggerRepository.cs" />
     <Compile Include="Models\TriggerStatusModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\GroupViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Views\Calendar\Details.aspx" />
     <Content Include="Views\Calendar\NotFound.aspx" />
-    <Content Include="Views\Group\CurrentStatus.ascx" />
-    <Content Include="Views\Group\Details.aspx" />
-    <Content Include="Views\Group\Index.aspx" />
-    <Content Include="Views\Group\NotFound.aspx" />
+    <Content Include="Views\Instance\CurrentStatus.ascx" />
     <Content Include="Views\Instance\Connect.aspx" />
     <Content Include="Views\Instance\Details.aspx" />
     <Content Include="Views\Instance\Index.aspx" />

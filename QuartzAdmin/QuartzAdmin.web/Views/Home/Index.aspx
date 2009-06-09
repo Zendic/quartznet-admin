@@ -13,7 +13,7 @@
         <%
         foreach (var instance in Model)
           {%>
-            <li><%=Html.ActionLink(instance.InstanceName, "Index", "Job", new { id = instance.InstanceName }, null)%> <%=Html.ActionLink("View", "Details", "Instance", new{id=instance.InstanceName}, null) %></li>
+            <li><%=Html.ActionLink(instance.InstanceName, "Connect", "Instance", new { id = instance.InstanceName }, null)%> <%=Html.ActionLink("View", "Details", "Instance", new{id=instance.InstanceName}, null) %></li>
         
         <%} %>        
         </ul>

@@ -19,13 +19,13 @@ namespace QuartzAdmin.web.Controllers
             return View();
         }
 
-        public ActionResult Details(string instanceName, string calendarName)
+        public ActionResult Details(string instanceName, string itemName)
         {
             Models.InstanceModel instance = instanceRepo.GetInstance(instanceName);
 
             Models.CalendarRepository calRepo = new QuartzAdmin.web.Models.CalendarRepository(instance);
-            Quartz.ICalendar cal = calRepo.GetCalendar(calendarName);
-            ViewData["calendarName"] = calendarName;
+            Quartz.ICalendar cal = calRepo.GetCalendar(itemName);
+            ViewData["calendarName"] = itemName;
 
             if (cal == null)
             {

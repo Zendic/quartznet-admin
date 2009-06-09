@@ -9,5 +9,6 @@ namespace QuartzAdmin.web.Models
     {
         public Quartz.ICalendar Calendar { get; set; }
         public Quartz.Trigger Trigger { get; set; }
+        public InstanceModel Instance { get; set; }
     }
 }
