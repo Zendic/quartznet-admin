@@ -8,7 +8,7 @@ using Quartz.Impl.Calendar;
 
 namespace QuartzAdmin.web.Models
 {
-    public class CalendarRepository : BaseQuartzRepository
+    public class CalendarRepository 
     {
         private InstanceModel quartzInstance;
         public CalendarRepository(Models.InstanceModel instance)

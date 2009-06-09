@@ -19,10 +19,9 @@ namespace QuartzAdmin.web.Controllers
         public ActionResult Index(string id)
         {
             Models.InstanceModel instance = instanceRepo.GetInstance(id);
-            Models.GroupRepository groupRepo = new QuartzAdmin.web.Models.GroupRepository(instance);
 
             ViewData["instanceName"] = instance.InstanceName;
-            List<Quartz.JobDetail> jobs = groupRepo.GetAllJobs();
+            List<Quartz.JobDetail> jobs = instance.GetAllJobs();
             if (jobs == null || jobs.Count == 0)
             {
                 return View("NotFound");

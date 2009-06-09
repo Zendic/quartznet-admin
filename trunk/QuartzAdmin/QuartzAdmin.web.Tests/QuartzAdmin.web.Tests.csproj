@@ -72,6 +72,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\includes\Quartz.dll</HintPath>
     </Reference>
+    <Reference Include="sample.scheduler.core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\includes\sample.scheduler.core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
@@ -90,6 +94,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectingToAnInstance.cs" />
     <Compile Include="DefiningAnInstance.cs" />
     <Compile Include="Fakes\FakeInstanceRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

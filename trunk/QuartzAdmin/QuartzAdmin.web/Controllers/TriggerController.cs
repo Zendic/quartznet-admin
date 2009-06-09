@@ -29,6 +29,7 @@ namespace QuartzAdmin.web.Controllers
 
             Models.CalendarRepository calRepo = new QuartzAdmin.web.Models.CalendarRepository(instance);
             m.Calendar = calRepo.GetCalendar(m.Trigger.CalendarName);
+            m.Instance = instance;
 
             ViewData["groupName"] = groupName;
 

@@ -40,7 +40,7 @@
         </p>
         <p>
             CalendarName:
-            <%=Model.Trigger.CalendarName!=null && Model.Trigger.CalendarName.Length > 0 ? Html.ActionLink(Model.Trigger.CalendarName, "Details", "Calendar", new { id = Html.Encode(Model.Trigger.CalendarName) }, null) : "None"%>
+            <%=Model.Trigger.CalendarName!=null && Model.Trigger.CalendarName.Length > 0 ? Html.ActionLink(Model.Trigger.CalendarName, "Details", "Calendar", new { instanceName=Url.Encode(Model.Instance.InstanceName), itemName = Url.Encode(Model.Trigger.CalendarName) }, null) : "None"%>
         </p>
         <p>
             Volatile:
@@ -77,6 +77,18 @@
         <p>
             HasAdditionalProperties:
             <%= Html.Encode(Model.Trigger.HasAdditionalProperties) %>
+        </p>
+        <p>
+            CRON:
+            <%if (Model.Trigger is Quartz.CronTrigger)
+              {
+                  Quartz.CronTrigger cronTrig = (Quartz.CronTrigger)Model.Trigger;
+                  %>
+                  Expression:  <%=cronTrig.CronExpressionString%> <br />
+                  Translated:  <%=cronTrig.GetExpressionSummary() %> <br />
+                  <%
+              }
+                 %>
         </p>
     </fieldset>
     <p>

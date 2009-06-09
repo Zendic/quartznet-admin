@@ -7,7 +7,7 @@ using Quartz;
 
 namespace QuartzAdmin.web.Models
 {
-    public class TriggerRepository : BaseQuartzRepository
+    public class TriggerRepository
     {
         private InstanceModel quartzInstance;
         public TriggerRepository(string instanceName)
@@ -62,8 +62,7 @@ namespace QuartzAdmin.web.Models
 
         public IList<TriggerStatusModel> GetAllTriggerStatus()
         {
-            GroupRepository groupRepo = new GroupRepository(quartzInstance);
-            var groups = groupRepo.FindAllGroups();
+            var groups = quartzInstance.FindAllGroups();
             List<TriggerStatusModel> triggerStatuses = new List<TriggerStatusModel>();
 
             foreach (string group in groups)

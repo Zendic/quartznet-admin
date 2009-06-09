@@ -30,18 +30,23 @@ namespace QuartzAdmin.web.Models
         public virtual ISet<InstancePropertyModel> InstanceProperties { get; set; }
 
 
+
+        private IScheduler _CurrentScheduler = null;
         public IScheduler GetQuartzScheduler()
         {
-            System.Collections.Specialized.NameValueCollection props = new System.Collections.Specialized.NameValueCollection();
-
-            foreach (InstancePropertyModel prop in this.InstanceProperties)
+            if (_CurrentScheduler == null)
             {
-                props.Add(prop.PropertyName, prop.PropertyValue);
-            }
-            ISchedulerFactory sf = new StdSchedulerFactory(props);
-            IScheduler sched = sf.GetScheduler();
+                System.Collections.Specialized.NameValueCollection props = new System.Collections.Specialized.NameValueCollection();
 
-            return sched;
+                foreach (InstancePropertyModel prop in this.InstanceProperties)
+                {
+                    props.Add(prop.PropertyName, prop.PropertyValue);
+                }
+                ISchedulerFactory sf = new StdSchedulerFactory(props);
+                _CurrentScheduler = sf.GetScheduler();
+            }
+
+            return _CurrentScheduler;
 
         }
 
