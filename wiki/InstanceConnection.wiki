@@ -1,0 +1,16 @@
+#summary Instance connection story
+#labels Phase-Requirements,Story
+
+*Story:* Connecting to an instance 
+
+  As Operations
+  I want to 
+  So that I can
+
+  # Scenario: 
+    When 
+    Then 
+  # Scenario: 
+    Given 
+    When 
+    Then 
