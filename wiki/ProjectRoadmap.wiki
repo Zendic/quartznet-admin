@@ -1,5 +1,5 @@
 #summary Outline of the releases and features they contain
-#labels Phase-Requirements,Roadmap
+#labels Phase-Requirements,Roadmap,Featured
 = Release 0.1 =
   * Add / edit instance (MD)
   * Connect to the instance (TJT)
