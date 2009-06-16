@@ -7,7 +7,7 @@
   * I want to execute an existing job immediately
   * So that I can run jobs on demand
 
-  # Scenario: Verify quartz is running
+  # Scenario: Execute a job
     * Given a quartz instance is running
     * When I select a job to execute
     * Then the job should be run in the quartz instance
