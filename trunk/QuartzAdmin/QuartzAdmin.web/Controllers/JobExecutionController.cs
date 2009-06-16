@@ -11,7 +11,16 @@ namespace QuartzAdmin.web.Controllers
     {
         //private Models.JobRepository jobRepo = new QuartzAdmin.web.Models.JobRepository();
         //private Models.TriggerRepository trigRepo = new QuartzAdmin.web.Models.TriggerRepository();
-        Models.InstanceRepository instanceRepo = new QuartzAdmin.web.Models.InstanceRepository();
+        public Models.IInstanceRepository Repository { get; set; }
+
+        public JobExecutionController()
+        {
+            Repository = new QuartzAdmin.web.Models.InstanceRepository();
+        }
+        public JobExecutionController(Models.IInstanceRepository repository)
+        {
+            Repository = repository;
+        }
 
 
         //
@@ -41,12 +50,11 @@ namespace QuartzAdmin.web.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult RunNow(string instanceName, string groupName, string itemName)
         {
-            Models.InstanceModel instance = instanceRepo.GetInstance(instanceName);
+            Models.InstanceModel instance = Repository.GetByName(instanceName);
             Models.JobRepository jobRepo = new QuartzAdmin.web.Models.JobRepository(instance);
 
             //var jdm_keys = this.ValueProvider.Keys.Where(k=>k.StartsWith("jdm_"));
             Quartz.JobDetail job = jobRepo.GetJob(itemName, groupName);
-            
 
 
             foreach (string jdm_key in this.Request.Form.Keys)
@@ -72,7 +80,7 @@ namespace QuartzAdmin.web.Controllers
 
         public JsonResult GetCurrentTriggerStatusList(string id)
         {
-            Models.InstanceModel instance = instanceRepo.GetInstance(id);
+            Models.InstanceModel instance = Repository.GetByName(id);
             Models.TriggerRepository trigRepo = new QuartzAdmin.web.Models.TriggerRepository(instance);
             IList<Models.TriggerStatusModel> triggerStatuses = trigRepo.GetAllTriggerStatus();
             return this.Json(triggerStatuses);
