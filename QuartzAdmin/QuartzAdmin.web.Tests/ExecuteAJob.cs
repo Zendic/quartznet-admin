@@ -121,7 +121,7 @@ namespace QuartzAdmin.web.Tests
             var context = new Mock<System.Web.HttpContextBase>();
             context.SetupGet(x => x.Request).Returns(request.Object);
             System.Collections.Specialized.NameValueCollection formParameters = new System.Collections.Specialized.NameValueCollection();
-            // NOTE: adding items to the formParameter collection is possible here
+
             formParameters.Add("jdm_MyParam1", "Working on the railroad");
             request.SetupGet(x => x.Form).Returns(formParameters);
 
@@ -132,7 +132,7 @@ namespace QuartzAdmin.web.Tests
             QuartzAdmin.web.Controllers.JobExecutionController jec = new QuartzAdmin.web.Controllers.JobExecutionController(instanceRepo);
             QuartzAdmin.web.Models.JobRepository jobRepo = new QuartzAdmin.web.Models.JobRepository(instanceRepo.GetByName("MyTestInstance"));
 
-            // - Set the fake request for the controller
+            // - Set the mocked context for the controller
             jec.ControllerContext = new System.Web.Mvc.ControllerContext(context.Object, new System.Web.Routing.RouteData(), jec);
 
             // Act
