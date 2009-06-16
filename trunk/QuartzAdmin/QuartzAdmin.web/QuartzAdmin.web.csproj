@@ -149,6 +149,7 @@
     <Compile Include="Models\InstanceRepository.cs" />
     <Compile Include="Models\InstanceViewModel.cs" />
     <Compile Include="Models\JobRepository.cs" />
+    <Compile Include="Models\JobViewModel.cs" />
     <Compile Include="Models\TriggerFireTimesModel.cs" />
     <Compile Include="Models\TriggerRepository.cs" />
     <Compile Include="Models\TriggerStatusModel.cs" />

@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Quartz.JobDetail>" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<QuartzAdmin.web.Models.JobViewModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Details
@@ -12,52 +12,61 @@
         <legend>Fields</legend>
         <p>
             Name:
-            <%= Html.Encode(Model.Name) %>
+            <%= Html.Encode(Model.JobDetail.Name) %>
         </p>
         <p>
             Group:
-            <%= Html.Encode(Model.Group) %>
+            <%= Html.Encode(Model.JobDetail.Group)%>
         </p>
         <p>
             FullName:
-            <%= Html.Encode(Model.FullName) %>
+            <%= Html.Encode(Model.JobDetail.FullName)%>
         </p>
         <p>
             Description:
-            <%= Html.Encode(Model.Description) %>
+            <%= Html.Encode(Model.JobDetail.Description)%>
         </p>
         <p>
             RequestsRecovery:
-            <%= Html.Encode(Model.RequestsRecovery) %>
+            <%= Html.Encode(Model.JobDetail.RequestsRecovery)%>
         </p>
         <p>
             Volatile:
-            <%= Html.Encode(Model.Volatile) %>
+            <%= Html.Encode(Model.JobDetail.Volatile)%>
         </p>
         <p>
             Durable:
-            <%= Html.Encode(Model.Durable) %>
+            <%= Html.Encode(Model.JobDetail.Durable)%>
         </p>
         <p>
             Stateful:
-            <%= Html.Encode(Model.Stateful) %>
+            <%= Html.Encode(Model.JobDetail.Stateful)%>
         </p>
         <p>
             Job Data Map
             <ul>
-            <%foreach (System.Collections.DictionaryEntry d in Model.JobDataMap)
+            <%foreach (System.Collections.DictionaryEntry d in Model.JobDetail.JobDataMap)
               {%>
               <li><%=Html.Encode(d.Key) %> - <%=Html.Encode(d.Value) %></li>
             <%} %>
             </ul>
         </p>
     </fieldset>
+    <fieldset>
+        <legend>Triggers</legend>
+        <ul>
+        <%foreach (Quartz.Trigger trigger in Model.Triggers)
+          {%>
+          <li><%=Html.ActionLink(trigger.FullName, "Details", "Trigger", new {instanceName=ViewData["instanceName"], groupName=trigger.Group, itemName=trigger.Name}, null) %></li>
+        <%} %>
+        </ul>
+    </fieldset>
     <p>
         <%=Html.ActionLink("Back to List", "Connect", "Instance", new { id = ViewData["instanceName"] }, null)%>
         
         <%  var rv = new RouteValueDictionary();
-            rv["groupName"] = Model.Group;
-            rv["itemName"] = Model.Name;
+            rv["groupName"] = Model.JobDetail.Group;
+            rv["itemName"] = Model.JobDetail.Name;
             rv["lastRunDate"] = DateTime.Now;
  %>
  
@@ -69,9 +78,9 @@
     <div class="hd">Job Data Map</div> 
         <div class="bd">     
         
-            <form id="runnow_form" action="<%=Url.Action("RunNow", "JobExecution", new {instanceName=ViewData["instanceName"], groupName=Model.Group, itemName=Model.Name}) %>" method="post">
+            <form id="runnow_form" action="<%=Url.Action("RunNow", "JobExecution", new {instanceName=ViewData["instanceName"], groupName=Model.JobDetail.Group, itemName=Model.JobDetail.Name}) %>" method="post">
                     <%
-                        foreach (System.Collections.DictionaryEntry d in Model.JobDataMap)
+                        foreach (System.Collections.DictionaryEntry d in Model.JobDetail.JobDataMap)
                       {%>
                       <label for="jdm_<%=Html.Encode(d.Key)%>"><%=Html.Encode(d.Key) %></label>
                       <input type="text" id="jdm_<%=Html.Encode(d.Key)%>" name="jdm_<%=Html.Encode(d.Key)%>" value="<%=Html.Encode(d.Value) %>"/>
