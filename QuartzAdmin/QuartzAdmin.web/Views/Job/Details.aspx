@@ -72,6 +72,7 @@
  
  
     <a href="javascript:void(0)" id="showRunJobNow">Run Job Now</a>
+    
     </p>
     <div id="status_msg"></div>
     <div id="dialog1">
