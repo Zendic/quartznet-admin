@@ -14,10 +14,9 @@
           <NativeDebugging>False</NativeDebugging>
           <SQLDebugging>False</SQLDebugging>
           <PublishCopyOption>RunFiles</PublishCopyOption>
-          <PublishTargetLocation>
-          </PublishTargetLocation>
+          <PublishTargetLocation>\\192.0.0.50\c$\inetpub\wwwroot\dev.bigsolutions.com\quartznet-admin\</PublishTargetLocation>
           <PublishDeleteAllFiles>False</PublishDeleteAllFiles>
-          <PublishCopyAppData>True</PublishCopyAppData>
+          <PublishCopyAppData>False</PublishCopyAppData>
           <ExternalProgram>
           </ExternalProgram>
           <StartExternalURL>

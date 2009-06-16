@@ -40,8 +40,8 @@ namespace QuartzAdmin.web.Controllers
             Models.JobRepository jobRepo = new QuartzAdmin.web.Models.JobRepository(instance);
 
             Quartz.JobDetail job = jobRepo.GetJob(itemName, groupName);
-            
-            ViewData["groupName"] = groupName;
+
+            ViewData["instanceName"] = instanceName;
             if (job == null)
             {
                 return View("NotFound");
