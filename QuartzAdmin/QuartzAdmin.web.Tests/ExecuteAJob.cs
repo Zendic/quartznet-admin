@@ -108,12 +108,12 @@ namespace QuartzAdmin.web.Tests
         }
 
         [TestMethod]
-        public void Execute_a_job_with_job_data()
+        public void Execute_a_job_with_job_data_map()
         {
             // Arrange
             // - Add a job into the test scheduler
             IScheduler sched = GetTestScheduler();
-            JobDetail job = new JobDetail("TestJob2", "TestGroup", typeof(sample.scheduler.core.ConsoleJob1));
+            JobDetail job = new JobDetail("TestJob2", "TestGroup", typeof(Quartz.Job.NoOpJob));
             job.JobDataMap.Add("MyParam1", "Initial Data");
             sched.AddJob(job, true);
             // - Setup the mock HTTP Request
@@ -130,7 +130,6 @@ namespace QuartzAdmin.web.Tests
             QuartzAdmin.web.Models.IInstanceRepository instanceRepo = new Fakes.FakeInstanceRepository();
             instanceRepo.Save(GetTestInstance());
             QuartzAdmin.web.Controllers.JobExecutionController jec = new QuartzAdmin.web.Controllers.JobExecutionController(instanceRepo);
-            QuartzAdmin.web.Models.JobRepository jobRepo = new QuartzAdmin.web.Models.JobRepository(instanceRepo.GetByName("MyTestInstance"));
 
             // - Set the mocked context for the controller
             jec.ControllerContext = new System.Web.Mvc.ControllerContext(context.Object, new System.Web.Routing.RouteData(), jec);

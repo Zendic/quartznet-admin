@@ -73,5 +73,11 @@ namespace QuartzAdmin.web.Models
             return triggerStatuses;
         }
 
+        public IList<Trigger> GetTriggersForJob(string jobName, string groupName)
+        {
+            Trigger[] arrayOfTriggers = quartzInstance.GetQuartzScheduler().GetTriggersOfJob(jobName, groupName);
+            return arrayOfTriggers.ToList(); 
+        }
+
     }
 }

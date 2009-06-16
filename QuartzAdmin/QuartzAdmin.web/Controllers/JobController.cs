@@ -38,8 +38,16 @@ namespace QuartzAdmin.web.Controllers
         {
             Models.InstanceModel instance = instanceRepo.GetInstance(instanceName);
             Models.JobRepository jobRepo = new QuartzAdmin.web.Models.JobRepository(instance);
-
+            Models.TriggerRepository triggerRepo = new QuartzAdmin.web.Models.TriggerRepository(instance);
+            
             Quartz.JobDetail job = jobRepo.GetJob(itemName, groupName);
+            Models.JobViewModel jvm = new QuartzAdmin.web.Models.JobViewModel();
+            jvm.JobDetail = job;
+            if (job != null)
+            {
+                jvm.Triggers = triggerRepo.GetTriggersForJob(itemName, groupName);
+            }
+
 
             ViewData["instanceName"] = instanceName;
             if (job == null)
@@ -49,7 +57,7 @@ namespace QuartzAdmin.web.Controllers
             else
             {
                 
-                return View(job);
+                return View(jvm);
             }
         }
 
