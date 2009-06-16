@@ -53,13 +53,14 @@
         </p>
     </fieldset>
     <p>
-        <%=Html.ActionLink("Back to List", "Details", "Group", new { id = ViewData["groupName"] }, null)%>
+        <%=Html.ActionLink("Back to List", "Connect", "Instance", new { id = ViewData["instanceName"] }, null)%>
         
         <%  var rv = new RouteValueDictionary();
             rv["groupName"] = Model.Group;
             rv["itemName"] = Model.Name;
             rv["lastRunDate"] = DateTime.Now;
  %>
+ 
  
     <a href="javascript:void(0)" id="showRunJobNow">Run Job Now</a>
     </p>

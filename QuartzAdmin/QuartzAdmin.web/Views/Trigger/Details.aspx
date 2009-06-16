@@ -92,7 +92,7 @@
         </p>
     </fieldset>
     <p>
-        <%=Html.ActionLink("Back to List", "Details", "Group", new { id = ViewData["groupName"] }, null)%>
+        <%=Html.ActionLink("Back to List", "Connect", "Instance", new { id = Model.Instance.InstanceName }, null)%>
         <a href="javascript:void(0)" id="showFireTimes" name="showFireTimes">Show Fire Times</a>
     </p>
     
