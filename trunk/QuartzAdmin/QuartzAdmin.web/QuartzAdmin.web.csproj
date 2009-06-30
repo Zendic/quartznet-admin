@@ -143,13 +143,18 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CalendarRepository.cs" />
+    <Compile Include="Models\ConnectionModel.cs" />
+    <Compile Include="Models\ConnectionParameterModel.cs" />
+    <Compile Include="Models\ConnectionTemplateModel.cs" />
     <Compile Include="Models\IInstanceRepository.cs" />
     <Compile Include="Models\InstanceModel.cs" />
     <Compile Include="Models\InstancePropertyModel.cs" />
     <Compile Include="Models\InstanceRepository.cs" />
     <Compile Include="Models\InstanceViewModel.cs" />
+    <Compile Include="Models\IValidatingModel.cs" />
     <Compile Include="Models\JobRepository.cs" />
     <Compile Include="Models\JobViewModel.cs" />
+    <Compile Include="Models\RuleViolation.cs" />
     <Compile Include="Models\TriggerFireTimesModel.cs" />
     <Compile Include="Models\TriggerRepository.cs" />
     <Compile Include="Models\TriggerStatusModel.cs" />

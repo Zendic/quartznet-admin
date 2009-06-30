@@ -5,6 +5,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Web;
 using System.Web.Mvc;
+using QuartzAdmin.web.Models;
 
 namespace QuartzAdmin.web.Tests
 {
@@ -99,7 +100,7 @@ Defining a connection
             
             //Act
             controller.Create(formData);
-            Models.InstanceModel newInstance = controller.Repository.GetByName("MyFirstInstance");
+            InstanceModel newInstance = controller.Repository.GetByName("MyFirstInstance");
 
             //Assert
             Assert.IsNotNull(newInstance);

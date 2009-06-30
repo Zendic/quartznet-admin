@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using QuartzAdmin.web.Models;
 
 namespace QuartzAdmin.web.Tests.Fakes
 {
-    public class FakeInstanceRepository : Models.IInstanceRepository
+    public class FakeInstanceRepository : IInstanceRepository
     {
         #region IInstanceRepository Members
 

@@ -102,6 +102,8 @@
     <Compile Include="DefiningAnInstance.cs" />
     <Compile Include="ExecuteAJob.cs" />
     <Compile Include="Fakes\FakeInstanceRepository.cs" />
+    <Compile Include="Models\ConnectionModelTest.cs" />
+    <Compile Include="Models\ConnectionRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Controllers\AccountControllerTest.cs" />
@@ -115,9 +117,6 @@
       <Project>{9C9863B2-B6C2-43CD-8A46-40356A3BE01F}</Project>
       <Name>QuartzAdmin.web</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
