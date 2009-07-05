@@ -99,10 +99,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectingToAnInstance.cs" />
+    <Compile Include="Controllers\ConnectionControllerTest.cs" />
     <Compile Include="DefiningAnInstance.cs" />
     <Compile Include="ExecuteAJob.cs" />
+    <Compile Include="Fakes\FakeConnectionRepository.cs" />
     <Compile Include="Fakes\FakeInstanceRepository.cs" />
     <Compile Include="Models\ConnectionModelTest.cs" />
+    <Compile Include="Models\ConnectionParameterModelTest.cs" />
     <Compile Include="Models\ConnectionRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />

@@ -130,6 +130,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
+    <Compile Include="Controllers\ConnectionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstanceController.cs" />
     <Compile Include="Controllers\JobController.cs" />
@@ -142,10 +143,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ControllerHelpers.cs" />
     <Compile Include="Models\CalendarRepository.cs" />
     <Compile Include="Models\ConnectionModel.cs" />
     <Compile Include="Models\ConnectionParameterModel.cs" />
+    <Compile Include="Models\ConnectionRepository.cs" />
     <Compile Include="Models\ConnectionTemplateModel.cs" />
+    <Compile Include="Models\IConnectionRepository.cs" />
     <Compile Include="Models\IInstanceRepository.cs" />
     <Compile Include="Models\InstanceModel.cs" />
     <Compile Include="Models\InstancePropertyModel.cs" />
