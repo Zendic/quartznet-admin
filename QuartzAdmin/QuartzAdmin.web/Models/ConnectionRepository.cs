@@ -24,7 +24,17 @@ namespace QuartzAdmin.web.Models
             throw new NotImplementedException();
         }
 
+        public bool IsValid(ConnectionModel connection, out IEnumerable<RuleViolation> ruleViolations)
+        {
+            throw new NotImplementedException();
+        }
+
         public void RemoveConnection(ConnectionModel connection)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<ConnectionModel> GetConnections()
         {
             throw new NotImplementedException();
         }
@@ -35,5 +45,7 @@ namespace QuartzAdmin.web.Models
         }
 
         #endregion
+
+
     }
 }

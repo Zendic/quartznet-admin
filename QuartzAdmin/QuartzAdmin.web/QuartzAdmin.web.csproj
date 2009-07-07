@@ -178,6 +178,7 @@
     <Content Include="Views\Job\Details.aspx" />
     <Content Include="Views\Job\Index.aspx" />
     <Content Include="Views\Job\NotFound.aspx" />
+    <Content Include="Views\Shared\NotFound.aspx" />
     <Content Include="Views\Trigger\Details.aspx" />
     <Content Include="Views\Trigger\FireTimes.aspx" />
     <Content Include="Views\Trigger\FireTimesPartial.ascx" />
