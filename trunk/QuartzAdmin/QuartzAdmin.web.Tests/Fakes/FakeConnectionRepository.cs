@@ -25,29 +25,35 @@ namespace QuartzAdmin.web.Tests.Fakes
             return _connectionList.Where(connection => connection.ConnectionId == connectionId).FirstOrDefault();
         }
 
+        public bool IsValid(ConnectionModel connection, out IEnumerable<RuleViolation> ruleViolations)
+        {
+            List<RuleViolation> ruleViolationList = new List<RuleViolation>();
+
+            ConnectionModel duplicateName = _connectionList.Where(existingConnection => existingConnection.Name == connection.Name && existingConnection.ConnectionId != connection.ConnectionId).FirstOrDefault();
+            if (duplicateName != null)
+            {
+                ruleViolationList.Add(new RuleViolation("Name is already in use", "Name"));
+            }
+
+            ruleViolations = ruleViolationList;
+            return (ruleViolationList.Count == 0);
+        }
+
         public void RemoveConnection(ConnectionModel connection)
         {
             _connectionList.Remove(connection);
         }
 
+        public IEnumerable<ConnectionModel> GetConnections()
+        {
+            return _connectionList;
+        }
+
         public void Save()
         {
-            var nameGroups =
-                from connection in this._connectionList
-                group connection by connection.Name into nameGroup
-                select new { Name = nameGroup.Key, Connections = nameGroup };
-
-            var duplicateNameGroups =
-                from nameGroup in nameGroups
-                where nameGroup.Connections.Count() > 1
-                select nameGroup;
-
-            int duplicateCount = duplicateNameGroups.Count();
-
-            if (duplicateCount > 0)
-            {
-                throw new ApplicationException("Duplicate connection name");
-            }
         }
+
+
+
     }
 }

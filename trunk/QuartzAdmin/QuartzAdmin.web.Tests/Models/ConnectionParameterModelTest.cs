@@ -93,6 +93,35 @@ namespace QuartzAdmin.web.Tests.Models
             Assert.IsTrue(connectionParameterList.Count == 1);
             Assert.IsTrue(connectionParameterList[0].Key == "key1");
             Assert.IsTrue(connectionParameterList[0].Value == "value1");
-        }    
+        }
+
+        public void Should_Create_Empty_List_From_Empty_Form_Collection()
+        {
+            // arrange
+            FormCollection formCollection = new FormCollection();
+
+            // act
+            List<ConnectionParameterModel> connectionParameterList = ConnectionParameterModel.FromFormCollection(formCollection);
+
+            // assert
+            Assert.IsTrue(connectionParameterList.Count == 0);
+        }
+
+        [TestMethod]
+        public void Should_Create_List_From_Invalid_Form_Collection()
+        {
+            // arrange
+            FormCollection formCollection = new FormCollection();
+            formCollection["ConnectionParameterKey1"] = "key1";
+
+            // act
+            List<ConnectionParameterModel> connectionParameterList = ConnectionParameterModel.FromFormCollection(formCollection);
+
+            // assert
+            Assert.IsTrue(connectionParameterList.Count == 1);
+            Assert.IsTrue(connectionParameterList[0].Key == "key1");
+            Assert.IsTrue(connectionParameterList[0].Value == null);
+            Assert.IsTrue(connectionParameterList[0].IsValid == false);
+        }
     }
 }

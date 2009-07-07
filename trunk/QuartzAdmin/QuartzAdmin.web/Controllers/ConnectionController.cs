@@ -23,7 +23,7 @@ namespace QuartzAdmin.web.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return View(this._connectionRepository.GetConnections());
         }
 
         //
@@ -48,14 +48,24 @@ namespace QuartzAdmin.web.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Create(FormCollection collection)
         {
+            ConnectionModel connection = null;
+
             try
             {
-                ConnectionModel connection = new ConnectionModel();
+                connection = new ConnectionModel();
                 this.UpdateModel(connection);
+                connection.ConnectionParameters.Clear();
                 connection.ConnectionParameters.AddRange(ConnectionParameterModel.FromFormCollection(collection));
 
                 if (connection.IsValid)
                 {
+                    IEnumerable<RuleViolation> ruleViolations = null;
+                    if (! this._connectionRepository.IsValid(connection, out ruleViolations))
+                    {
+                        ModelState.AddRuleViolations(ruleViolations);
+                        return View(connection);
+                    }
+                    
                     this._connectionRepository.AddConnection(connection);
                     this._connectionRepository.Save();
                 }
@@ -78,7 +88,20 @@ namespace QuartzAdmin.web.Controllers
  
         public ActionResult Edit(int id)
         {
-            return View();
+            ViewResult viewResult = null;
+
+            ConnectionModel connection = this._connectionRepository.GetConnection(id);
+            if (connection == null)
+            {
+                viewResult = View("NotFound", "The specified connection was not found" );
+            }
+            else
+            {
+                viewResult = View(connection);
+            }
+
+            return viewResult;
+            
         }
 
         //
@@ -87,11 +110,36 @@ namespace QuartzAdmin.web.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Edit(int id, FormCollection collection)
         {
+            ConnectionModel connection = null;
+
             try
             {
-                // TODO: Add update logic here
- 
-                return RedirectToAction("Index");
+                connection = this._connectionRepository.GetConnection(id);
+                if (connection == null)
+                {
+                    return View("NotFound", "The specified connection was not found");
+                }
+
+                this.UpdateModel(connection);
+                connection.ConnectionParameters.Clear();
+                connection.ConnectionParameters.AddRange(ConnectionParameterModel.FromFormCollection(collection));
+
+                if (connection.IsValid)
+                {
+                    IEnumerable<RuleViolation> ruleViolations = null;
+                    if (!this._connectionRepository.IsValid(connection, out ruleViolations))
+                    {
+                        ModelState.AddRuleViolations(ruleViolations);
+                        return View(connection);
+                    }
+                    this._connectionRepository.Save();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddRuleViolations(connection.GetRuleViolations());
+                    return View(connection);
+                }
             }
             catch
             {

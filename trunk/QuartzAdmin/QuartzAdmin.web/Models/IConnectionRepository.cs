@@ -11,7 +11,9 @@ namespace QuartzAdmin.web.Models
 
         void AddConnection(ConnectionModel connection);
         ConnectionModel GetConnection(int connectionId);
+        bool IsValid(ConnectionModel connection, out IEnumerable<RuleViolation> ruleViolations);
         void RemoveConnection(ConnectionModel connection);
+        IEnumerable<ConnectionModel> GetConnections();
         void Save();
 
     }
