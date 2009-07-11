@@ -1,4 +1,5 @@
 #summary Connection definition creation stories
+#labels BDD,Story
 
 *Story:* Creating a connection definition
 
