@@ -54,12 +54,12 @@
     * Given that the job summary is not currently sorted by a given property
     * When the user clicks on the header for the property
     * Then the job summary is resorted by the property in ascending order
-and an icon appears next to the property header to indicate that it is being sorted in ascending order.
+    * and an icon appears next to the property header to indicate that it is being sorted in ascending order.
   # Scenario: Selecting the sort direction
     * Given that the job summary is currently sorted by a given property
     * When the user clicks on the header for the property
     * Then the job summary is resorted using the same property in the reverse order
-and an icon appears next to the property header to indicate whether it is being sorted in ascending or descending order.
+    * and an icon appears next to the property header to indicate whether it is being sorted in ascending or descending order.
   # Scenario: Sorting a job that has never executed
     * Given that one or more jobs exist that have never been executed
     * When the user sorts the job summary by previous execution time
