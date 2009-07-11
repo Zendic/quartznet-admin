@@ -16,33 +16,29 @@
 
  * As Operations
  * I want each job summary entry to contain
-•	Job Name
-•	Group Name
-•	Description
-•	Previous Execution Time
-•	Next Execution Time
+   * Job Name
+   * Group Name
+   * Description
+   * Previous Execution Time
+   * Next Execution Time
  * So that I can view the most common information about the job without loading its details.
 
   # Scenario: Summarizing a job that has no group
     * Given that a job is not assigned to a group
     * When the job is displayed in the job summary
     * Then the value "(Default)" is used for the group name
-
   # Scenario: Summarizing a job that has no description
     * Given that a job does not have a description
     * When the job is displayed in the job summary
     * Then the description value appears blank.
-
   # Scenario: Summarizing a job that has never executed
     * Given that a job has never executed
     * When the job is displayed in the job summary
     * Then the value "n/a" is used for the previous execution time. 
-
   # Scenario: Summarizing a job that will not be executed again
     * Given that a job will not be executed again
     * When the job is displayed in the job summary
     * Then the value "n/a" is used for the next execution time.
-
   # Scenario: Formatting Previous and Next Execution Time
     * Given that a job has a previous or next execution time
     * When the job is displayed in the job summary
@@ -59,23 +55,19 @@
     * When the user clicks on the header for the property
     * Then the job summary is resorted by the property in ascending order
 and an icon appears next to the property header to indicate that it is being sorted in ascending order.
-
   # Scenario: Selecting the sort direction
     * Given that the job summary is currently sorted by a given property
     * When the user clicks on the header for the property
     * Then the job summary is resorted using the same property in the reverse order
 and an icon appears next to the property header to indicate whether it is being sorted in ascending or descending order.
-
   # Scenario: Sorting a job that has never executed
     * Given that one or more jobs exist that have never been executed
     * When the user sorts the job summary by previous execution time
     * Then the jobs that have never been executed are sorted to the top (in ascending order) or the bottom (in descending order) of the summary.
-
   # Scenario: Sorting a job that will not be executed again
     * Given that one or more jobs exist that will not be executed again
     * When the user sorts the job summary by next execution time
     * Then the jobs that will not be executed again are sorted to the top (in ascending order) or the bottom (in descending order) of the summary.
-
   # Scenario: Secondary sorting for time properties
     * When the job summary data is sorted by previous or next execution time
     * Then a secondary sort by name will be applied so that jobs without time data or jobs with identical time data will be sorted.
@@ -91,7 +83,6 @@ and an icon appears next to the property header to indicate whether it is being 
     * When the user enables the grouping option on the “Job Summary” page
     * Then the job summaries within the same group are displayed together under a group header
 and the current sorting options are applied on a per group basis.
-
   # Scenario: Disabling grouping
     * Given that the job summary is currently grouped
     * When the user disabled the grouping option on the “Job Summary” page
