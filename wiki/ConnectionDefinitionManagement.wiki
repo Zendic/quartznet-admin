@@ -1,4 +1,4 @@
-#summary Connection definition management
+#summary Connection Definition Management Stories
 #labels BBD,Story
 
 *Story:* Creating a connection definition
