@@ -1,5 +1,5 @@
 #summary Trigger Detail Stories
-#labels BDD,Story
+#labels BDD,Story,Phase-Requirements
 
 *Story:* Viewing triggers details
 
