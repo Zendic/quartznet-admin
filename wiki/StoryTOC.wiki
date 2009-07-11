@@ -1,6 +1,7 @@
 #summary Story Table of Contents
 #labels BDD,Story
 
-[ConnectionDefinitionManagement]
-
-
+ * [ConnectionDefinitionManagement Connection Definition Management]
+ * [JobSummary Job Summary]
+ * [JobDetail Job Detail]
+ * [TriggerDetail Trigger Detail]
