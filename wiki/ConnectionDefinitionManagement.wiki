@@ -1,5 +1,5 @@
 #summary Connection Definition Management Stories
-#labels BBD,Story
+#labels BBD,Story,Phase-Requirements
 
 *Story:* Creating a connection definition
 
