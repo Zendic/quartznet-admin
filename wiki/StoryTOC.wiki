@@ -1,5 +1,5 @@
 #summary Story Table of Contents
-#labels BDD,Story,Phase-Requirements
+#labels BDD,Story,Phase-Requirements,Featured
 
  * [ConnectionDefinitionManagement Connection Definition Management]
  * [JobSummary Job Summary]
