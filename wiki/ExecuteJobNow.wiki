@@ -1,5 +1,5 @@
 #summary Execute existing job story
-#labels Phase-Requirements,Story
+#labels Phase-Requirements,BDD,Story
 
 *Story:* Execute existing job 
 
