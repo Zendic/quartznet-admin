@@ -81,13 +81,13 @@ and an icon appears next to the property header to indicate whether it is being 
   # Scenario: Enabling grouping
     * Given that the job summary is not currently grouped
     * When the user enables the grouping option on the “Job Summary” page
-    * Then the job summaries within the same group are displayed together under a group header
-and the current sorting options are applied on a per group basis.
+    * Then the job summaries within the same group are displayed together under a group header 
+    * and the current sorting options are applied on a per group basis.
   # Scenario: Disabling grouping
     * Given that the job summary is currently grouped
     * When the user disabled the grouping option on the “Job Summary” page
     * Then the job summaries appear as a single list
-And the current sorting options are applied to the entire list.
+    * and the current sorting options are applied to the entire list.
 
 *Story:* Sorting groups
 
