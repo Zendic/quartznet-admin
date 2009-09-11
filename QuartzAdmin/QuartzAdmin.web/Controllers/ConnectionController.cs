@@ -12,7 +12,7 @@ namespace QuartzAdmin.web.Controllers
     public class ConnectionController : Controller
     {
         IConnectionRepository _connectionRepository = new ConnectionRepository();
-
+        public ConnectionController() { }
         public ConnectionController(IConnectionRepository repository)
         {
             _connectionRepository = repository;

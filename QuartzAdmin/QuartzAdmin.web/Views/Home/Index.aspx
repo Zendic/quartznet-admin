@@ -9,14 +9,18 @@
     <h2>Welcome to Quartz Admin</h2>
     <p>
     
-        <ul>
+        <table>
         <%
         foreach (var instance in Model)
           {%>
-            <li><%=Html.ActionLink(instance.InstanceName, "Connect", "Instance", new { id = instance.InstanceName }, null)%> <%=Html.ActionLink("View", "Details", "Instance", new{id=instance.InstanceName}, null) %></li>
+            <tr>
+                <td><%=Html.ActionLink(instance.InstanceName, "Connect", "Instance", new { id = instance.InstanceName }, null)%></td>
+                <td><%=Html.ActionLink("View", "Details", "Instance", new{id=instance.InstanceName}, null) %></td>
+                <td><%=Html.ActionLink("Edit", "Edit", "Instance", new{id=instance.InstanceName}, null) %></td>
+            </tr>
         
         <%} %>        
-        </ul>
+        </table>
         
     </p>
 </asp:Content>

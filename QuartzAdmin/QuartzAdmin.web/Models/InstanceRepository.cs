@@ -71,7 +71,6 @@ namespace QuartzAdmin.web.Models
             if (!ActiveRecordStarter.IsInitialized)
                 ActiveRecordStarter.Initialize();
 
-            
 
             instance.Save();
         }

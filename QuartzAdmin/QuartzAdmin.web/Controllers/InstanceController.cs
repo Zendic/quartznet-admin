@@ -60,53 +60,51 @@ namespace QuartzAdmin.web.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Create(FormCollection collection)
         {
-            try
-            {
-                Models.InstanceModel instance = new QuartzAdmin.web.Models.InstanceModel();
-                instance.InstanceName = collection["InstanceName"];
+            Models.InstanceModel instance = new QuartzAdmin.web.Models.InstanceModel();
+            instance.InstanceName = collection["InstanceName"];
 
-                foreach (string key in collection.Keys)
+            foreach (string key in collection.Keys)
+            {
+                if (key.Contains("InstancePropertyKey"))
                 {
-                    if (key.Contains("InstancePropertyKey"))
-                    {
-                        string propIdx = key.Replace("InstancePropertyKey", ""); 
-                        instance.InstanceProperties.Add(new QuartzAdmin.web.Models.InstancePropertyModel() { PropertyName = collection[key], PropertyValue = collection["InstancePropertyValue" + propIdx.ToString()] });
-                    }
+                    string propIdx = key.Replace("InstancePropertyKey-", "");
+                    instance.InstanceProperties.Add(new QuartzAdmin.web.Models.InstancePropertyModel() { PropertyName = collection[key], PropertyValue = collection["InstancePropertyValue-" + propIdx.ToString()] });
                 }
-                this.Repository.Save(instance);
+            }
+            this.Repository.Save(instance);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
 
         //
         // GET: /Instance/Edit/5
  
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            return View();
+            Models.InstanceModel instance = this.Repository.GetByName(id);
+
+            return View(instance);
         }
 
         //
         // POST: /Instance/Edit/5
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(string id, FormCollection collection)
         {
-            try
+            Models.InstanceModel instance = this.Repository.GetByName(id);
+
+            foreach (string key in collection.Keys)
             {
-                // TODO: Add update logic here
+                if (key.Contains("InstancePropertyKey"))
+                {
+                    string propIdx = key.Replace("InstancePropertyKey-", "");
+                    instance.InstanceProperties.Add(new QuartzAdmin.web.Models.InstancePropertyModel() { PropertyName = collection[key], PropertyValue = collection["InstancePropertyValue-" + propIdx.ToString()] });
+                }
+            }
+            this.Repository.Save(instance);
  
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
 
         public ActionResult Connect(string id)

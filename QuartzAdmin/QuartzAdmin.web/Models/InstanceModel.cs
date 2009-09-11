@@ -24,7 +24,7 @@ namespace QuartzAdmin.web.Models
         [Property, ValidateNonEmpty]
         public virtual string InstanceName { get; set; }
 
-        [HasMany(Table = "tbl_instanceproperties",
+        [HasMany(typeof(InstancePropertyModel), Table = "tbl_instanceproperties",
                  ColumnKey = "InstanceID",
                  Cascade = ManyRelationCascadeEnum.AllDeleteOrphan)]
         public virtual ISet<InstancePropertyModel> InstanceProperties { get; set; }
