@@ -30,7 +30,8 @@
         </p>
     </fieldset>
     <p>
-        <%=Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) %> |
+        <%=Html.ActionLink("Edit", "Edit", new { id=Model.InstanceName }) %> |
+        <%=Html.ActionLink("Delete", "Delete", new { id=Model.InstanceName }) %> |
         <%=Html.ActionLink("Back to List", "Index") %>
     </p>
 

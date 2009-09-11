@@ -26,7 +26,7 @@ namespace QuartzAdmin.web.Models
 
         [HasMany(typeof(InstancePropertyModel), Table = "tbl_instanceproperties",
                  ColumnKey = "InstanceID",
-                 Cascade = ManyRelationCascadeEnum.AllDeleteOrphan)]
+                 Cascade = ManyRelationCascadeEnum.All, Inverse=true)]
         public virtual ISet<InstancePropertyModel> InstanceProperties { get; set; }
 
 

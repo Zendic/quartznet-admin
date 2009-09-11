@@ -172,9 +172,11 @@
     <Content Include="Views\Instance\Create.aspx" />
     <Content Include="Views\Instance\CurrentStatus.ascx" />
     <Content Include="Views\Instance\Connect.aspx" />
+    <Content Include="Views\Instance\Delete.aspx" />
     <Content Include="Views\Instance\Details.aspx" />
     <Content Include="Views\Instance\Edit.aspx" />
     <Content Include="Views\Instance\Index.aspx" />
+    <Content Include="Views\Instance\InstanceProps.ascx" />
     <Content Include="Views\JobExecution\CurrentStatus.aspx" />
     <Content Include="Views\JobExecution\Index.aspx" />
     <Content Include="Views\Job\Details.aspx" />

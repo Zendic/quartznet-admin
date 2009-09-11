@@ -65,10 +65,10 @@ namespace QuartzAdmin.web.Controllers
 
             foreach (string key in collection.Keys)
             {
-                if (key.Contains("InstancePropertyKey"))
+                if (key.Contains("InstancePropertyKey") && collection[key].Length > 0)
                 {
                     string propIdx = key.Replace("InstancePropertyKey-", "");
-                    instance.InstanceProperties.Add(new QuartzAdmin.web.Models.InstancePropertyModel() { PropertyName = collection[key], PropertyValue = collection["InstancePropertyValue-" + propIdx.ToString()] });
+                    instance.InstanceProperties.Add(new QuartzAdmin.web.Models.InstancePropertyModel() {ParentInstance=instance, PropertyName = collection[key], PropertyValue = collection["InstancePropertyValue-" + propIdx.ToString()] });
                 }
             }
             this.Repository.Save(instance);
@@ -93,18 +93,40 @@ namespace QuartzAdmin.web.Controllers
         public ActionResult Edit(string id, FormCollection collection)
         {
             Models.InstanceModel instance = this.Repository.GetByName(id);
-
+            //instance.InstanceProperties.Clear();
+            foreach (var p in instance.InstanceProperties)
+            {
+                //instance.InstanceProperties.Remove(p);
+                p.Delete();
+            }
+            instance.InstanceProperties.Clear();
             foreach (string key in collection.Keys)
             {
-                if (key.Contains("InstancePropertyKey"))
+                if (key.Contains("InstancePropertyKey") && collection[key].Length>0)
                 {
                     string propIdx = key.Replace("InstancePropertyKey-", "");
-                    instance.InstanceProperties.Add(new QuartzAdmin.web.Models.InstancePropertyModel() { PropertyName = collection[key], PropertyValue = collection["InstancePropertyValue-" + propIdx.ToString()] });
+                    instance.InstanceProperties.Add(new QuartzAdmin.web.Models.InstancePropertyModel() { /*InstanceID=instance.InstanceID*/ ParentInstance=instance, PropertyName = collection[key], PropertyValue = collection["InstancePropertyValue-" + propIdx.ToString()] });
                 }
             }
             this.Repository.Save(instance);
  
                 return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(string id)
+        {
+            Models.InstanceModel instance = this.Repository.GetByName(id);
+            return View(instance);
+
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Delete(string id, FormCollection collection)
+        {
+            Models.InstanceModel instance = this.Repository.GetByName(id);
+            this.Repository.Delete(instance);
+            return RedirectToAction("Index");
+            
         }
 
         public ActionResult Connect(string id)

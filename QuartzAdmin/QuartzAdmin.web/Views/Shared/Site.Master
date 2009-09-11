@@ -17,6 +17,7 @@
 <!-- Combo-handled YUI JS files: -->
 <script type="text/javascript" src="http://yui.yahooapis.com/combo?2.7.0/build/yahoo-dom-event/yahoo-dom-event.js&2.7.0/build/element/element-min.js&2.7.0/build/button/button-min.js&2.7.0/build/connection/connection-min.js&2.7.0/build/dragdrop/dragdrop-min.js&2.7.0/build/container/container-min.js"></script>
     
+    <asp:ContentPlaceHolder ID="HeaderContent" runat="server" />
 </head>
 
 <body class=" yui-skin-sam">

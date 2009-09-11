@@ -14,7 +14,8 @@
         foreach (var instance in Model)
           {%>
             <tr>
-                <td><%=Html.ActionLink(instance.InstanceName, "Connect", "Instance", new { id = instance.InstanceName }, null)%></td>
+                <td><%=instance.InstanceName%></td>
+                <td><%=Html.ActionLink("Connect", "Connect", "Instance", new { id = instance.InstanceName }, null)%></td>
                 <td><%=Html.ActionLink("View", "Details", "Instance", new{id=instance.InstanceName}, null) %></td>
                 <td><%=Html.ActionLink("Edit", "Edit", "Instance", new{id=instance.InstanceName}, null) %></td>
             </tr>
@@ -23,4 +24,8 @@
         </table>
         
     </p>
+    <p>
+        <%= Html.ActionLink("Create New", "Create", "Instance") %>
+    </p>
+
 </asp:Content>

@@ -12,9 +12,20 @@ namespace QuartzAdmin.web.Tests.Fakes
 
         List<QuartzAdmin.web.Models.InstanceModel> _instances = new List<QuartzAdmin.web.Models.InstanceModel>();
 
+        public void Delete(QuartzAdmin.web.Models.InstanceModel instance)
+        {
+            _instances.Remove(instance);
+        }
+
         public void Save(QuartzAdmin.web.Models.InstanceModel instance)
         {
             //throw new NotImplementedException();
+            _instances.Add(instance);
+            QuartzAdmin.web.Models.InstanceModel found = _instances.Find(x => x.InstanceName == instance.InstanceName);
+            if (found != null)
+            {
+                _instances.Remove(found);
+            }
             _instances.Add(instance);
         }
 
