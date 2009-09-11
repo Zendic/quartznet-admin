@@ -169,9 +169,11 @@
     <Content Include="Global.asax" />
     <Content Include="Views\Calendar\Details.aspx" />
     <Content Include="Views\Calendar\NotFound.aspx" />
+    <Content Include="Views\Instance\Create.aspx" />
     <Content Include="Views\Instance\CurrentStatus.ascx" />
     <Content Include="Views\Instance\Connect.aspx" />
     <Content Include="Views\Instance\Details.aspx" />
+    <Content Include="Views\Instance\Edit.aspx" />
     <Content Include="Views\Instance\Index.aspx" />
     <Content Include="Views\JobExecution\CurrentStatus.aspx" />
     <Content Include="Views\JobExecution\Index.aspx" />
