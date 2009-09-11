@@ -6,10 +6,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Details</h2>
+    <h2><%=Model.InstanceName%> Details</h2>
 
     <fieldset>
-        <legend>Fields</legend>
         <p>
             InstanceID:
             <%= Html.Encode(Model.InstanceID) %>
