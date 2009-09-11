@@ -74,6 +74,14 @@ namespace QuartzAdmin.web.Models
 
             instance.Save();
         }
+        public void Delete(InstanceModel instance)
+        {
+            if (!ActiveRecordStarter.IsInitialized)
+                ActiveRecordStarter.Initialize();
+
+
+            instance.Delete();
+        }
 
     }
 }

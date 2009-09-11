@@ -23,9 +23,9 @@
     
         <tr>
             <td>
-                <%= Html.ActionLink("Edit", "Edit", new { id=item.InstanceID }) %> |
-                <%= Html.ActionLink("Details", "Details", new { id=item.InstanceID })%>
-                <%= Html.ActionLink("Groups", "Index", "Group", new { id=item.InstanceName }, null)%>
+                <%= Html.ActionLink("Edit", "Edit", new { id=item.InstanceName }) %> |
+                <%= Html.ActionLink("Details", "Details", new { id = item.InstanceName })%> | 
+                <%= Html.ActionLink("Delete", "Delete", new { id = item.InstanceName })%>
             </td>
             <td>
                 <%= Html.Encode(item.InstanceID) %>

@@ -13,8 +13,9 @@ namespace QuartzAdmin.web.Models
         [PrimaryKey(Generator=PrimaryKeyType.Identity)]
         public virtual int InstancePropertyID { get; set; }
 
-        [BelongsTo("InstanceID")]
-        public virtual InstanceModel ParentInstance{ get; set; }
+        [BelongsTo("InstanceID", NotNull=true)]
+        public virtual InstanceModel ParentInstance { get; set; }
+        //public virtual int InstanceID{ get; set; }
 
         [Property(NotNull=true)]
         public virtual string PropertyName { get; set; }

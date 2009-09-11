@@ -20,29 +20,7 @@
                 <%= Html.ValidationMessage("InstanceName", "*") %>
             </p>
             <p>
-                <label>Quartz Properties</label>
-                <table>
-                    <tr>
-                        <th>Prop Name</th>
-                        <th>Prop Value</th>
-                    </tr>
-                    <tr>
-                        <td><%=Html.TextBox("InstancePropertyKey-1", "quartz.scheduler.instanceName")%></td>
-                        <td><%=Html.TextBox("InstancePropertyValue-1", "SampleQuartzScheduler") %></td>
-                    </tr>
-                    <tr>
-                        <td><%=Html.TextBox("InstancePropertyKey-2", "quartz.threadPool.type")%></td>
-                        <td><%=Html.TextBox("InstancePropertyValue-2", "Quartz.Simpl.SimpleThreadPool, Quartz") %></td>
-                    </tr>
-                    <tr>
-                        <td><%=Html.TextBox("InstancePropertyKey-3", "quartz.scheduler.proxy")%></td>
-                        <td><%=Html.TextBox("InstancePropertyValue-3", "true") %></td>
-                    </tr>
-                    <tr>
-                        <td><%=Html.TextBox("InstancePropertyKey-4", "quartz.scheduler.proxy.address")%></td>
-                        <td><%=Html.TextBox("InstancePropertyValue-4", "tcp://localhost:555/QuartzScheduler") %></td>
-                    </tr>
-                </table>
+                <%Html.RenderPartial("InstanceProps"); %>
             </p>
             <p>
             </p>

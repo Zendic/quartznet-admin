@@ -3,6 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Edit
 </asp:Content>
+<asp:Content ContentPlaceHolderID="HeaderContent" runat="server">
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
         Edit</h2>
@@ -15,33 +17,7 @@
             <label for="InstanceName">
                 <%=Model.InstanceName %></label>
         </p>
-        <label>
-            Quartz Properties</label>
-        <table>
-            <tr>
-                <th>
-                    Prop Name
-                </th>
-                <th>
-                    Prop Value
-                </th>
-            </tr>
-            <%
-                int cnt = 1;
-                foreach (QuartzAdmin.web.Models.InstancePropertyModel prop in Model.InstanceProperties)
-                {%>
-            <tr>
-                <td>
-                    <%=Html.TextBox(string.Format("InstancePropertyKey-{0}", cnt), prop.PropertyName)%>
-                </td>
-                <td>
-                    <%=Html.TextBox(string.Format("InstancePropertyValue-{0}", cnt), prop.PropertyValue) %>
-                </td>
-            </tr>
-            <%
-                cnt++;
-                  } %>
-        </table>
+        <%Html.RenderPartial("InstanceProps", Model);%>
         <p>
             <input type="submit" value="Save" />
         </p>
