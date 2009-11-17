@@ -73,6 +73,15 @@ namespace sample.scheduler.core
                 scheduler.AddJob(job, true);
             }
 
+            if (!jobNames.Contains("TwoAliens"))
+            {
+                Quartz.JobDetail job = new Quartz.JobDetail("TwoAliens", myGroupName, typeof(TwoAlienJob));
+                Quartz.Trigger trigger = Quartz.TriggerUtils.MakeMonthlyTrigger(28, 23, 59);
+                trigger.Name = "EveryFullMoon";
+                trigger.Group = myGroupName;
+
+                scheduler.ScheduleJob(job, trigger);
+            }
 
 
             scheduler.Start();

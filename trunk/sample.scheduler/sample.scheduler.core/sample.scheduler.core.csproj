@@ -87,6 +87,7 @@
     <Compile Include="ConsoleJob1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuartzHost.cs" />
+    <Compile Include="TwoAlienJob.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
