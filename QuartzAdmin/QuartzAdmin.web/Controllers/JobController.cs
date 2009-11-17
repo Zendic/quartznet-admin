@@ -9,8 +9,6 @@ namespace QuartzAdmin.web.Controllers
 {
     public class JobController : Controller
     {
-        //private Models.JobRepository jobRepo = new QuartzAdmin.web.Models.JobRepository();
-        //private Models.GroupRepository groupRepo = new QuartzAdmin.web.Models.GroupRepository();
         Models.InstanceRepository instanceRepo = new QuartzAdmin.web.Models.InstanceRepository();
 
         //
@@ -61,6 +59,20 @@ namespace QuartzAdmin.web.Controllers
             }
         }
 
-        //public ActionResult RunNow
+        public ActionResult Details2(string instanceName, string groupName, string itemName)
+        {
+            Models.JobRepository jobRepo = new QuartzAdmin.web.Models.JobRepository(instanceName);
+            Quartz.JobDetail job = jobRepo.GetJob(itemName, groupName);
+            if (job == null)
+            {
+                return View("NotFound");
+            }
+            else
+            {
+                return View(job);
+            }
+        }
+
     }
+
 }
