@@ -160,7 +160,7 @@
     <Compile Include="Models\JobViewModel.cs" />
     <Compile Include="Models\RuleViolation.cs" />
     <Compile Include="Models\TriggerFireTimesModel.cs" />
-    <Compile Include="Models\TriggerRepository.cs" />
+    <Compile Include="Views\TriggerRepository.cs" />
     <Compile Include="Models\TriggerStatusModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -180,6 +180,7 @@
     <Content Include="Views\JobExecution\CurrentStatus.aspx" />
     <Content Include="Views\JobExecution\Index.aspx" />
     <Content Include="Views\Job\Details.aspx" />
+    <Content Include="Views\Job\Details2.aspx" />
     <Content Include="Views\Job\Index.aspx" />
     <Content Include="Views\Job\NotFound.aspx" />
     <Content Include="Views\Shared\NotFound.aspx" />
