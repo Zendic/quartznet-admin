@@ -100,6 +100,7 @@ namespace QuartzAdmin.web.Controllers
                 p.Delete();
             }
             instance.InstanceProperties.Clear();
+            
             foreach (string key in collection.Keys)
             {
                 if (key.Contains("InstancePropertyKey") && collection[key].Length>0)
@@ -154,6 +155,13 @@ namespace QuartzAdmin.web.Controllers
 
             }
 
+        }
+
+        public ActionResult WhatIsMyInstanceID(string id)
+        {
+            Models.InstanceModel instance = Repository.GetByName(id);
+            this.ViewData["MyTime"] = DateTime.Now.ToString("HH:mm");
+            return View(instance);
         }
     }
 }
