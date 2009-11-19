@@ -31,7 +31,7 @@
     <p>
         <%=Html.ActionLink("Edit", "Edit", new { id=Model.InstanceName }) %> |
         <%=Html.ActionLink("Delete", "Delete", new { id=Model.InstanceName }) %> |
-        <%=Html.ActionLink("Back to List", "Index") %>
+        <%=Html.ActionLink("Back to List", "Index", "Home") %>
     </p>
 
 </asp:Content>

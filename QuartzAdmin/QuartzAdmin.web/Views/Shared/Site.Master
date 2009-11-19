@@ -25,7 +25,7 @@
 
         <div id="header">
             <div id="title">
-                [Logo here]
+                <img src="<%=this.ResolveClientUrl("/Content/Images/logo.png") %>" />
                 <h1>Quartz Administration</h1>
             </div>
               
