@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sample.scheduler.core", "sample.scheduler.core\sample.scheduler.core.csproj", "{C9D067E7-AD4E-4EC1-92E7-37824401A142}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sample.scheduler.console", "sample.scheduler.console\sample.scheduler.console.csproj", "{DC4EB02A-C69A-47FE-844E-D742AA5DBB5C}"
