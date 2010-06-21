@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartzAdmin.web", "QuartzAdmin.web\QuartzAdmin.web.csproj", "{9C9863B2-B6C2-43CD-8A46-40356A3BE01F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartzAdmin.web.Tests", "QuartzAdmin.web.Tests\QuartzAdmin.web.Tests.csproj", "{7A04C7B4-F03D-489B-B89B-B9113ED6F01F}"

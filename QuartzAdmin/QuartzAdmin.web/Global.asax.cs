@@ -18,7 +18,7 @@ namespace QuartzAdmin.web
             routes.IgnoreRoute("favicon.ico");
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
-                "Default",                                              // Route name
+                "Default",                                              // Route nam
                 "{controller}/{action}/{instanceName}/{groupName}/{itemName}",                           // URL with parameters
                 new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
             );
@@ -34,12 +34,13 @@ namespace QuartzAdmin.web
                 "{controller}/{action}/{instanceName}/{itemName}",                           // URL with parameters
                 new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
             );
-
+            
             routes.MapRoute(
                 "Default3",                                              // Route name
                 "{controller}/{action}/{id}",                           // URL with parameters
                 new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
             );
+             
             /*
             routes.MapRoute(
                 "Job",                                              // Route name

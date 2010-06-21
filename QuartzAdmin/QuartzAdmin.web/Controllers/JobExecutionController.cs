@@ -83,7 +83,7 @@ namespace QuartzAdmin.web.Controllers
             Models.InstanceModel instance = Repository.GetByName(id);
             Models.TriggerRepository trigRepo = new QuartzAdmin.web.Models.TriggerRepository(instance);
             IList<Models.TriggerStatusModel> triggerStatuses = trigRepo.GetAllTriggerStatus();
-            return this.Json(triggerStatuses);
+            return this.Json(triggerStatuses, JsonRequestBehavior.AllowGet);
         }
 
     }
