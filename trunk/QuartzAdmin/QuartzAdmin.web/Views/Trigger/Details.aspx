@@ -40,7 +40,7 @@
         </p>
         <p>
             CalendarName:
-            <%=Model.Trigger.CalendarName!=null && Model.Trigger.CalendarName.Length > 0 ? Html.ActionLink(Model.Trigger.CalendarName, "Details", "Calendar", new { instanceName=Url.Encode(Model.Instance.InstanceName), itemName = Url.Encode(Model.Trigger.CalendarName) }, null) : "None"%>
+            <%=Model.Trigger.CalendarName!=null && Model.Trigger.CalendarName.Length > 0 ? Html.ActionLink(Model.Trigger.CalendarName, "Details", "Calendar", new { instanceName=Url.Encode(Model.Instance.InstanceName), itemName = Url.Encode(Model.Trigger.CalendarName) }, null) : MvcHtmlString.Create("None")%>
         </p>
         <p>
             Volatile:
